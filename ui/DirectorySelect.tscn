@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui/scripts/DirectorySelect.gd" type="Script" id=1]
+
+[node name="DirButton" type="Button"]
+margin_right = 128.0
+margin_bottom = 25.0
+focus_mode = 1
+text = "Select Directory"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Modal" type="FileDialog" parent="."]
+margin_right = 416.0
+margin_bottom = 443.0
+rect_min_size = Vector2( 400, 140 )
+window_title = "Open a Directory"
+resizable = true
+dialog_hide_on_ok = true
+mode = 2
+access = 2
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Input" type="LineEdit" parent="."]
+margin_top = 32.0
+margin_right = 256.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="." to="." method="_on_DirButton_pressed"]
+[connection signal="dir_selected" from="Modal" to="." method="_on_Modal_dir_selected"]
+[connection signal="ready" from="Input" to="." method="_on_Input_ready"]
+[connection signal="text_changed" from="Input" to="." method="_on_Input_text_changed"]
+[connection signal="text_entered" from="Input" to="." method="_on_Input_text_entered"]

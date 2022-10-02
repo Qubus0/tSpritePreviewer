@@ -1,0 +1,1522 @@
+[gd_scene load_steps=71 format=2]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://ui/scripts/CustomWindow.gd" type="Script" id=2]
+[ext_resource path="res://ui/icons/pin-angle-fill.svg" type="Texture" id=3]
+[ext_resource path="res://ui/icons/grid.svg" type="Texture" id=4]
+[ext_resource path="res://ui/icons/x.svg" type="Texture" id=5]
+[ext_resource path="res://ui/scripts/IconButton.gd" type="Script" id=6]
+[ext_resource path="res://ui/icons/color-alpha-bg.png" type="Texture" id=7]
+[ext_resource path="res://ui/icons/film.svg" type="Texture" id=8]
+[ext_resource path="res://ui/default_theme.tres" type="Theme" id=9]
+[ext_resource path="res://ui/scripts/ColorHexInput.gd" type="Script" id=10]
+[ext_resource path="res://ui/btn_group_color_preset.tres" type="ButtonGroup" id=11]
+[ext_resource path="res://ui/icons/play-circle-fill.svg" type="Texture" id=12]
+[ext_resource path="res://ui/icons/1-square-fill.svg" type="Texture" id=13]
+[ext_resource path="res://ui/icons/play-fill.svg" type="Texture" id=14]
+[ext_resource path="res://ui/icons/2-square-fill.svg" type="Texture" id=15]
+[ext_resource path="res://ui/icons/skip-start-fill.svg" type="Texture" id=16]
+[ext_resource path="res://ui/icons/3-square-fill.svg" type="Texture" id=17]
+[ext_resource path="res://ui/icons/pause-fill.svg" type="Texture" id=18]
+[ext_resource path="res://ui/icons/skip-end-fill.svg" type="Texture" id=19]
+[ext_resource path="res://ui/fonts/JetBrainsMono/JetBrainsMono-Regular.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://ui/icons/part-arm-front.png" type="Texture" id=21]
+[ext_resource path="res://ui/icons/part-head.png" type="Texture" id=22]
+[ext_resource path="res://ui/icons/male.svg" type="Texture" id=23]
+[ext_resource path="res://ui/icons/female.svg" type="Texture" id=24]
+[ext_resource path="res://ui/icons/part-legs.png" type="Texture" id=25]
+[ext_resource path="res://ui/icons/part-arm-back.png" type="Texture" id=26]
+[ext_resource path="res://ui/icons/part-shoulder.png" type="Texture" id=27]
+[ext_resource path="res://ui/icons/part-body.png" type="Texture" id=28]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.396078, 0.403922, 0.403922, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.176471, 0.192157, 0.258824, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=50]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+} ]
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.176471, 0.192157, 0.258824, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="DynamicFont" id=9]
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.396078, 0.403922, 0.403922, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.160784, 0.639216, 0.960784, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0.74902, 0.752941, 0.752941, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.458824, 0.796078, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.396078, 0.403922, 0.403922, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+anti_aliasing = false
+
+[sub_resource type="InputEventAction" id=24]
+action = "color_panel"
+
+[sub_resource type="ShortCut" id=25]
+shortcut = SubResource( 24 )
+
+[sub_resource type="ButtonGroup" id=23]
+resource_name = "SettingsPanels"
+
+[sub_resource type="InputEventAction" id=26]
+action = "parts_panel"
+
+[sub_resource type="ShortCut" id=27]
+resource_name = "parts_panel"
+shortcut = SubResource( 26 )
+
+[sub_resource type="InputEventAction" id=28]
+action = "animations_panel"
+
+[sub_resource type="ShortCut" id=29]
+resource_name = "animations_panel"
+shortcut = SubResource( 28 )
+
+[sub_resource type="InputEventAction" id=30]
+action = "playback_panel"
+
+[sub_resource type="ShortCut" id=31]
+resource_name = "playback_panel"
+shortcut = SubResource( 30 )
+
+[sub_resource type="InputEventAction" id=32]
+action = "foreground"
+
+[sub_resource type="ShortCut" id=33]
+resource_name = "foreground"
+shortcut = SubResource( 32 )
+
+[sub_resource type="StyleBoxFlat" id=51]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.176471, 0.192157, 0.258824, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id=21]
+content_margin_left = 7.0
+content_margin_right = 7.0
+content_margin_top = 7.0
+content_margin_bottom = 7.0
+bg_color = Color( 0.176471, 0.192157, 0.258824, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=52]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 20 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=45]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.160784, 0.639216, 0.960784, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=46]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.160784, 0.639216, 0.960784, 1 )
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="Theme" id=48]
+Button/styles/disabled = SubResource( 18 )
+Button/styles/focus = SubResource( 45 )
+Button/styles/hover = SubResource( 46 )
+Button/styles/normal = SubResource( 18 )
+Button/styles/pressed = SubResource( 47 )
+
+[sub_resource type="ButtonGroup" id=49]
+
+[sub_resource type="ButtonGroup" id=34]
+
+[sub_resource type="InputEventAction" id=40]
+action = "previous_frame"
+
+[sub_resource type="ShortCut" id=41]
+shortcut = SubResource( 40 )
+
+[sub_resource type="InputEventAction" id=37]
+action = "pause_play"
+
+[sub_resource type="ShortCut" id=38]
+resource_name = "pause_play"
+shortcut = SubResource( 37 )
+
+[sub_resource type="InputEventAction" id=42]
+action = "next_frame"
+
+[sub_resource type="ShortCut" id=43]
+shortcut = SubResource( 42 )
+
+[sub_resource type="ButtonGroup" id=36]
+resource_name = "PlaybackSpeed"
+
+[sub_resource type="DynamicFont" id=39]
+size = 10
+font_data = ExtResource( 20 )
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 9 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CustomWindow" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CustomWindow"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+editor_only = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviewControl" type="Control" parent="CustomWindow"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 11 )
+animation = "move"
+playing = true
+
+[node name="Legs" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 13 )
+animation = "move"
+playing = true
+
+[node name="Body" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 14 )
+animation = "move"
+playing = true
+
+[node name="Female" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+position = Vector2( 0, 2 )
+frames = SubResource( 50 )
+animation = "move"
+playing = true
+
+[node name="Head" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 15 )
+animation = "move"
+playing = true
+
+[node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 17 )
+animation = "move"
+playing = true
+
+[node name="ArmFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 16 )
+animation = "move"
+playing = true
+
+[node name="TitleBar" type="PanelContainer" parent="CustomWindow"]
+anchor_right = 1.0
+margin_bottom = 20.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CustomWindow/TitleBar"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 251.0
+margin_bottom = 20.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPicker" type="Button" parent="CustomWindow/TitleBar/HBoxContainer" groups=["untoggle"]]
+margin_right = 15.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Pick background color"
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/focus = SubResource( 22 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 25 )
+group = SubResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickerBackground" type="TextureRect" parent="CustomWindow/TitleBar/HBoxContainer/ColorPicker"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Parts" type="TextureButton" parent="CustomWindow/TitleBar/HBoxContainer" groups=["untoggle"]]
+margin_left = 19.0
+margin_right = 34.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Toggle parts"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 27 )
+group = SubResource( 23 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Animations" type="TextureButton" parent="CustomWindow/TitleBar/HBoxContainer" groups=["untoggle"]]
+margin_left = 38.0
+margin_right = 53.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Change animation"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 29 )
+group = SubResource( 23 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
+texture_focused = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458774, 0.796244, 1, 1 )
+
+[node name="Playback" type="TextureButton" parent="CustomWindow/TitleBar/HBoxContainer" groups=["untoggle"]]
+margin_left = 57.0
+margin_right = 72.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Control playback"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 31 )
+group = SubResource( 23 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458774, 0.796244, 1, 1 )
+
+[node name="Spacer" type="MarginContainer" parent="CustomWindow/TitleBar/HBoxContainer"]
+margin_left = 76.0
+margin_right = 208.0
+margin_bottom = 15.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="Foreground" type="TextureButton" parent="CustomWindow/TitleBar/HBoxContainer"]
+margin_left = 212.0
+margin_right = 227.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Keep in foreground"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+shortcut = SubResource( 33 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458774, 0.796244, 1, 1 )
+
+[node name="Quit" type="TextureButton" parent="CustomWindow/TitleBar/HBoxContainer"]
+margin_left = 231.0
+margin_right = 246.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Quit"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0.870588, 0.372549, 0.329412, 1 )
+icon_color_hover = Color( 0.870588, 0.372549, 0.329412, 1 )
+icon_color_pressed = Color( 1, 0.0784314, 0, 1 )
+
+[node name="TitleBarTween" type="Tween" parent="CustomWindow/TitleBar"]
+
+[node name="ErrorLabel" type="RichTextLabel" parent="."]
+visible = false
+anchor_right = 1.0
+margin_left = 9.0
+margin_top = 32.0
+margin_right = -9.0
+margin_bottom = 247.0
+custom_styles/normal = SubResource( 51 )
+bbcode_enabled = true
+fit_content_height = true
+override_selected_font_color = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPanel" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -134.0
+margin_right = 164.0
+margin_bottom = -5.0
+custom_styles/panel = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 152.0
+margin_bottom = 125.0
+custom_constants/separation = 5
+
+[node name="Presets" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+margin_right = 145.0
+margin_bottom = 25.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ColorPreset1" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset1"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset2" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+margin_left = 30.0
+margin_right = 55.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.878431, 0.882353, 0.882353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset3" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+margin_left = 60.0
+margin_right = 85.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset3"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.74902, 0.752941, 0.752941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset4" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+margin_left = 90.0
+margin_right = 115.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset4"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.396078, 0.403922, 0.403922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset5" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+margin_left = 120.0
+margin_right = 145.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset5"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Presets2" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+margin_top = 30.0
+margin_right = 145.0
+margin_bottom = 55.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="ColorPreset1" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset1"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.239216, 0.462745, 0.34902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset2" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+margin_left = 30.0
+margin_right = 55.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.729412, 0.678431, 0.403922, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset3" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+margin_left = 60.0
+margin_right = 85.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset3"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.262745, 0.184314, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset4" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+margin_left = 90.0
+margin_right = 115.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset4"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.352941, 0.141176, 0.121569, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorPreset5" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+margin_left = 120.0
+margin_right = 145.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+group = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset5"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.333333, 0.568627, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer" type="MarginContainer" parent="ColorPanel/VBoxContainer"]
+margin_top = 60.0
+margin_right = 145.0
+margin_bottom = 60.0
+
+[node name="ColorCode" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+margin_top = 65.0
+margin_right = 145.0
+margin_bottom = 91.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorPanel/VBoxContainer/ColorCode"]
+show_behind_parent = true
+margin_top = 3.0
+margin_right = 67.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "Exact #"
+
+[node name="ColorHexInput" type="LineEdit" parent="ColorPanel/VBoxContainer/ColorCode"]
+margin_left = 71.0
+margin_right = 145.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 74, 0 )
+max_length = 6
+expand_to_text_length = true
+context_menu_enabled = false
+placeholder_text = "000000"
+placeholder_alpha = 0.4
+script = ExtResource( 10 )
+
+[node name="Alpha" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+margin_top = 96.0
+margin_right = 145.0
+margin_bottom = 118.0
+
+[node name="Label" type="Label" parent="ColorPanel/VBoxContainer/Alpha"]
+margin_right = 40.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 40, 0 )
+custom_fonts/font = SubResource( 52 )
+text = "100%"
+align = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorPanel/VBoxContainer/Alpha"]
+margin_left = 44.0
+margin_right = 145.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AlphaSlider" type="HSlider" parent="ColorPanel/VBoxContainer/Alpha/VBoxContainer"]
+margin_top = 3.0
+margin_right = 101.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+value = 100.0
+rounded = true
+tick_count = 5
+ticks_on_borders = true
+
+[node name="PartsPanel" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -108.0
+margin_right = 102.0
+margin_bottom = -5.0
+custom_styles/panel = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Parts" type="GridContainer" parent="PartsPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 92.0
+margin_bottom = 96.0
+theme = SubResource( 48 )
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 3
+
+[node name="Shoulder" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Shoulder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Head" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_left = 30.0
+margin_right = 55.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Head"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HairPlaceholder" type="MarginContainer" parent="PartsPanel/Parts"]
+margin_left = 60.0
+margin_right = 85.0
+margin_bottom = 25.0
+
+[node name="Hair" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+visible = false
+margin_left = 60.0
+margin_right = 85.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Hair"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmFront" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_top = 30.0
+margin_right = 25.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ArmFront"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 21 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 55.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmBack" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 85.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ArmBack"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Female" type="TextureButton" parent="PartsPanel/Parts"]
+margin_top = 60.0
+margin_right = 25.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Female"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = SubResource( 49 )
+texture_normal = ExtResource( 24 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 24 )
+texture_disabled = ExtResource( 24 )
+texture_focused = ExtResource( 24 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Legs" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 55.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 25, 25 )
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Legs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 25 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Male" type="TextureButton" parent="PartsPanel/Parts"]
+self_modulate = Color( 0.458824, 0.796078, 1, 1 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 85.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Male"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+group = SubResource( 49 )
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 23 )
+texture_disabled = ExtResource( 23 )
+texture_focused = ExtResource( 23 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="AnimationPanel" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -110.0
+margin_right = 97.0
+margin_bottom = -5.0
+custom_styles/panel = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 85.0
+margin_bottom = 98.0
+custom_constants/separation = 5
+
+[node name="Idle" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_right = 78.0
+margin_bottom = 19.0
+group = SubResource( 34 )
+text = "Idle"
+flat = true
+
+[node name="Jump" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_top = 24.0
+margin_right = 78.0
+margin_bottom = 43.0
+group = SubResource( 34 )
+text = "Jump"
+flat = true
+
+[node name="Use" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_top = 48.0
+margin_right = 78.0
+margin_bottom = 67.0
+group = SubResource( 34 )
+text = "Use"
+flat = true
+
+[node name="Move" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_top = 72.0
+margin_right = 78.0
+margin_bottom = 91.0
+pressed = true
+group = SubResource( 34 )
+text = "Move"
+flat = true
+
+[node name="PlaybackPanel" type="PanelContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -34.0
+margin_right = 167.0
+margin_bottom = -5.0
+custom_styles/panel = SubResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlaybackPanel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 155.0
+margin_bottom = 22.0
+
+[node name="PreviousFrame" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+margin_right = 15.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Previous Frame"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+shortcut = SubResource( 41 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 16 )
+texture_focused = ExtResource( 16 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="PausePlay" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 19.0
+margin_right = 34.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Pause/Play"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+shortcut = SubResource( 38 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 14 )
+texture_focused = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 1, 1, 1, 1 )
+
+[node name="NextFrame" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 38.0
+margin_right = 53.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Next Frame"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+shortcut = SubResource( 43 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 19 )
+texture_focused = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Spacer" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 57.0
+margin_right = 62.0
+margin_bottom = 15.0
+custom_constants/margin_right = 5
+
+[node name="Speed1" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 66.0
+margin_right = 81.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "1 frame per second"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = SubResource( 36 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 13 )
+texture_focused = ExtResource( 13 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Speed2" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+self_modulate = Color( 0.458824, 0.796078, 1, 1 )
+margin_left = 85.0
+margin_right = 100.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Normal Speed"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+group = SubResource( 36 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 15 )
+texture_disabled = ExtResource( 15 )
+texture_focused = ExtResource( 15 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Speed3" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 104.0
+margin_right = 119.0
+margin_bottom = 15.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Double Speed"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+group = SubResource( 36 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 17 )
+texture_focused = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Spacer2" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 123.0
+margin_right = 128.0
+margin_bottom = 15.0
+custom_constants/margin_right = 5
+
+[node name="FrameIndex" type="Label" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 132.0
+margin_right = 144.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 39 )
+text = "11"
+
+[node name="Spacer3" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+margin_left = 148.0
+margin_right = 148.0
+margin_bottom = 15.0
+
+[connection signal="gui_input" from="CustomWindow" to="CustomWindow" method="_on_CustomWindow_gui_input"]
+[connection signal="resized" from="CustomWindow" to="CustomWindow" method="_on_CustomWindow_resized"]
+[connection signal="frame_changed" from="CustomWindow/PreviewControl/Head" to="." method="_on_Head_frame_changed"]
+[connection signal="gui_input" from="CustomWindow/TitleBar" to="CustomWindow" method="_on_TitleBar_gui_input"]
+[connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/ColorPicker" to="." method="_on_ColorPicker_toggled"]
+[connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Parts" to="." method="_on_Parts_toggled"]
+[connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Animations" to="." method="_on_Animations_toggled"]
+[connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Playback" to="." method="_on_Playback_toggled"]
+[connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Foreground" to="." method="_on_Foreground_toggled"]
+[connection signal="pressed" from="CustomWindow/TitleBar/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="text_change_rejected" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_change_rejected"]
+[connection signal="text_changed" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="." method="_on_ColorHexInput_text_changed"]
+[connection signal="text_changed" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_changed"]
+[connection signal="value_changed" from="ColorPanel/VBoxContainer/Alpha/VBoxContainer/AlphaSlider" to="." method="_on_AlphaSlider_value_changed"]
+[connection signal="toggled" from="PartsPanel/Parts/Shoulder" to="." method="_on_Shoulder_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Head" to="." method="_on_Head_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Hair" to="." method="_on_Hair_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/ArmFront" to="." method="_on_ArmFront_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Body" to="." method="_on_Body_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/ArmBack" to="." method="_on_ArmBack_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Female" to="." method="_on_Female_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Legs" to="." method="_on_Legs_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/Male" to="." method="_on_Male_toggled"]
+[connection signal="pressed" from="PlaybackPanel/HBoxContainer/PreviousFrame" to="." method="_on_PreviousFrame_pressed"]
+[connection signal="toggled" from="PlaybackPanel/HBoxContainer/PausePlay" to="." method="_on_PausePlay_toggled"]
+[connection signal="pressed" from="PlaybackPanel/HBoxContainer/NextFrame" to="." method="_on_NextFrame_pressed"]
+[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed1" to="." method="_on_Speed1_toggled"]
+[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed2" to="." method="_on_Speed2_toggled"]
+[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed3" to="." method="_on_Speed3_toggled"]
