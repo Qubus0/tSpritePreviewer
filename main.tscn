@@ -44,8 +44,13 @@ corner_radius_bottom_left = 10
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -55,20 +60,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -78,20 +83,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -101,20 +106,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=50]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -124,20 +129,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -147,20 +152,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -170,20 +175,20 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -193,13 +198,8 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 } ]
 
 [sub_resource type="StyleBoxFlat" id=8]

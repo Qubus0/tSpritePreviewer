@@ -298,8 +298,19 @@ func _on_Speed3_toggled(_button_pressed: bool) -> void:
 
 
 func _on_Head_frame_changed() -> void:
-	var frame: String = "%02d" % ($CustomWindow/PreviewControl/Head.frame + 1)
+	# frames on all animations are always in sync -> only need to check one
+	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
+	var frame: String = "%02d" % (sprite.frame + 1)
 	$PlaybackPanel/HBoxContainer/FrameIndex.text = frame
+
+	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
+	if sprite.animation == "use":
+		match sprite.frame:
+			0, 1:
+				print("?")
+				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 6)
+			2, 3:
+				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 5)
 
 
 func _on_ColorPreset_pressed(button: Button) -> void:
