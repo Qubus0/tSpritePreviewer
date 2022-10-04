@@ -49,6 +49,6 @@ func is_png_file(file_name: String) -> bool:
 
 
 func is_not_hidden_or_relative_directory(file_name: String) -> bool:
-	return file_name[0] == '.' # includes "." and ".." directories
+	return file_name[0] == "." # includes "." and ".." directories
 
 

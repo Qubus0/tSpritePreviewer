@@ -18,7 +18,7 @@ func compile_set_image(set_images: Array) -> void:
 		var preview = Image.new()
 		preview.create(preview_size, preview_size, false, Image.FORMAT_RGBA8)
 		for sprite in set_images:
-			var part_type = sprite.name.rsplit('_', false, 1)[1]
+			var part_type = sprite.name.rsplit("_", false, 1)[1]
 			if not part_type:
 				continue
 

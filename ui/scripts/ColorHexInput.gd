@@ -14,4 +14,4 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 		hex += last_reject
 		last_reject = ""
 		self.text = hex
-		emit_signal('text_changed', hex)
+		emit_signal("text_changed", hex)

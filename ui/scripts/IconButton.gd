@@ -21,10 +21,10 @@ func _ready() -> void:
 	if disabled:
 		self_modulate = icon_color_disabled
 	# warning-ignore-all:return_value_discarded
-	connect('button_down', self, '_on_button_down')
-	connect('button_up', self, '_on_button_up')
-	connect('mouse_entered', self, '_on_mouse_entered')
-	connect('mouse_exited', self, '_on_mouse_exited')
+	connect("button_down", self, "_on_button_down")
+	connect("button_up", self, "_on_button_up")
+	connect("mouse_entered", self, "_on_mouse_entered")
+	connect("mouse_exited", self, "_on_mouse_exited")
 
 
 func _process(_delta: float) -> void:
