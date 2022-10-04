@@ -313,12 +313,10 @@ func _on_Head_frame_changed() -> void:
 	$PlaybackPanel/HBoxContainer/FrameIndex.text = frame
 
 	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
-	if sprite.animation == "use":
-		match sprite.frame:
-			0, 1:
-				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 6)
-			2, 3:
-				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 5)
+	if sprite.animation == "use" and (sprite.frame == 2 or sprite.frame == 3):
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 5)
+	else:
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 6)
 
 
 func _on_ColorPreset_pressed(button: Button) -> void:
