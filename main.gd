@@ -211,7 +211,8 @@ func set_preview_sprite_frame(frame: int):
 		var sprite := preview_sprite as AnimatedSprite
 
 		var frame_count: int = sprite.frames.get_frame_count(sprite.animation)
-		sprite.frame = frame % frame_count
+		if frame_count > 0:
+			sprite.frame = frame % frame_count
 
 
 func ready_untoggle(button: BaseButton):
