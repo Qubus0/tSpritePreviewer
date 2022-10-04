@@ -13,55 +13,47 @@ func compile_set_image(set_images: Array) -> void:
 	var src_pos : Vector2 = Vector2.ZERO
 	var src : Image
 	for frame in frame_count:
+		var state = get_state(frame)
 		src_pos = Vector2(0, frame * frame_size.y)
 
-		var preview = Image.new()
-		preview.create(preview_size, preview_size, false, Image.FORMAT_RGBA8)
 		for sprite in set_images:
+			var preview = create_empty_preview()
 			var part_type = sprite.name.rsplit("_", false, 1)[1]
 			if not part_type:
 				continue
 
 			src = sprite.image
 			if src.get_width() > frame_size.x:
-				extract_body_and_arm_preview_images(frame, src, preview_images, preview)
+				extract_body_and_arm_preview_images(frame, src, preview_images)
 			else:
-				preview.fill(Color.transparent)
 				preview.blend_rect(src, Rect2(src_pos, frame_size), preview_pos)
-				add_part_preview_images(frame, preview_images, preview, part_type)
+				add_part_preview_images(state, preview_images, preview, part_type)
 
+			if state == "idle":
+				if part_type == "Legs":
+					# the sitting legs are just taking the idle frames legs and editing them
+					preview.fill(Color.transparent)
+					# l 46-52 up 4, right 4
+					var bottom_lines = Rect2(Vector2(0, 46), Vector2(frame_size.x, 12))
+					preview.blend_rect(src, bottom_lines, preview_pos + bottom_lines.position + Vector2(4, -4))
+					# l 44-45 up 2, right 2
+					var mid_line = Rect2(Vector2(0, 44), Vector2(frame_size.x, 2))
+					preview.blend_rect(src, mid_line, preview_pos + mid_line.position + Vector2(2, -2))
+					# l 42-43 copy on top
+					var top_line = Rect2(Vector2(0, 42), Vector2(frame_size.x, 2))
+					preview.blend_rect(src, top_line, preview_pos + top_line.position)
+
+				add_part_preview_images("sit", preview_images, preview, part_type)
 	emit_signal("preview", preview_images)
 
 
-#func compile_set_image(set: JourneysTrendVanitySet):
-#	var src_pos : Vector2 = Vector2.ZERO
-#	var src : Image
-#	for frame in frame_count:
-#		src_pos = Vector2(0, frame * frame_size.y)
-#
-#		for item in set.items:
-#			if item.sprites.empty():
-#				continue
-#
-#			var preview = Image.new()
-#			preview.create(preview_size, preview_size, false, Image.FORMAT_RGBA8)
-#			for sprite in item.sprites:
-#				var part_type = sprite.name.rsplit('_', false, 1)[1]
-#				if not part_type:
-#					continue
-#
-#				src = sprite.image
-#				if src.get_width() > frame_size.x:
-#					extract_body_and_arm_preview_images(frame, src, set, preview)
-#				else:
-#					preview.blend_rect(src, Rect2(src_pos, frame_size), preview_pos)
-#					add_part_preview_images(frame, set, preview, part_type)
-#
-#	emit_signal("preview", set)
+func create_empty_preview() -> Image:
+	var preview = Image.new()
+	preview.create(preview_size, preview_size, false, Image.FORMAT_RGBA8)
+	return preview
 
 
-func add_part_preview_images(frame: int, preview_images: Dictionary, preview: Image, part_type: String) -> void:
-	var state: String = get_state(frame)
+func add_part_preview_images(state: String, preview_images: Dictionary, preview: Image, part_type: String) -> void:
 	var texture = ImageTexture.new()
 	texture.create_from_image(preview, 0)
 	if not preview_images.has(part_type):
@@ -69,13 +61,14 @@ func add_part_preview_images(frame: int, preview_images: Dictionary, preview: Im
 			"idle": [],
 			"jump": [],
 			"use": [],
-			"move": []
+			"move": [],
+			"sit": []
 		}
 	preview_images[part_type][state].append(texture)
 
 
-func extract_body_and_arm_preview_images(frame: int, source: Image, preview_images: Dictionary, preview: Image) -> void:
-	var pos = {
+func extract_body_and_arm_preview_images(frame: int, source: Image, preview_images: Dictionary) -> void:
+	var pos = { # coordinates for the body spritesheet
 			"body": {
 				"idle": Vector2(0, 0),
 				"jump": Vector2(1, 0),
@@ -98,48 +91,40 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 		7,8,9,14,15,16:
 			upshift = Vector2(0 , -2)
 
+	add_body_part_preview_from_position(
+		"ArmBack", frame_size * (pos.arm[state][arm_index] + pos.alt_offset),
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"Body", frame_size * pos.body[state if state == "jump" else "idle"],
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"Female", frame_size * pos.body[state if state == "jump" else "idle"] + pos.alt_offset,
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ArmFront", frame_size * pos.arm[state][arm_index],
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"Shoulder", frame_size * pos.arm.shoulder,
+		source, upshift, state, preview_images
+	)
+
+
+func add_body_part_preview_from_position(part_type: String, position: Vector2, source: Image, upshift: Vector2, state: String, preview_images: Dictionary):
 	# since the positions are "coordinates" on the body sprite, they need to be
 	# multiplied by the frame_size to get the real pixel values
-	# order from back to front: back arm, body, front arm, shoulder
-	preview.fill(Color.transparent)
+	var preview = create_empty_preview()
 	preview.blend_rect(
 		source,
-		Rect2(frame_size * (pos.arm[state][arm_index] + pos.alt_offset), frame_size),
+		Rect2(position, frame_size),
 		preview_pos + upshift
 	)
-	add_part_preview_images(frame, preview_images, preview, "ArmBack")
-
-	preview.fill(Color.transparent)
-	preview.blend_rect(
-		source,
-		Rect2(frame_size * pos.body[state if state == "jump" else "idle"], frame_size),
-		preview_pos + upshift
-	)
-	add_part_preview_images(frame, preview_images, preview, "Body")
-
-	preview.fill(Color.transparent)
-	preview.blend_rect(
-		source,
-		Rect2(frame_size * pos.body[state if state == "jump" else "idle"] + pos.alt_offset, frame_size),
-		preview_pos + upshift
-	)
-	add_part_preview_images(frame, preview_images, preview, "Female")
-
-	preview.fill(Color.transparent)
-	preview.blend_rect(
-		source,
-		Rect2(frame_size * pos.arm[state][arm_index], frame_size),
-		preview_pos + upshift
-	)
-	add_part_preview_images(frame, preview_images, preview, "ArmFront")
-
-	preview.fill(Color.transparent)
-	preview.blend_rect(
-		source,
-		Rect2(frame_size * pos.arm.shoulder, frame_size),
-		preview_pos + upshift
-	)
-	add_part_preview_images(frame, preview_images, preview, "Shoulder")
+	add_part_preview_images(state, preview_images, preview, part_type)
+	if state == "idle":
+		add_part_preview_images("sit", preview_images, preview, part_type)
 
 
 # up frames and arm positions (0 midback, 1 back, 1 midfront, 3 front)

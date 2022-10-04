@@ -173,6 +173,7 @@ func clear_preview_sprites() -> int:
 		sprite.frames.clear("jump")
 		sprite.frames.clear("use")
 		sprite.frames.clear("move")
+		sprite.frames.clear("sit")
 	return last_frame
 
 

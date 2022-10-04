@@ -44,13 +44,8 @@ corner_radius_bottom_left = 10
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -60,20 +55,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=53]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -83,20 +83,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=54]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -106,20 +111,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=50]
+[sub_resource type="SpriteFrames" id=55]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -129,20 +139,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=56]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -152,20 +167,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=57]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -175,20 +195,25 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="SpriteFrames" id=58]
 animations = [ {
 "frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
@@ -198,7 +223,17 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 } ]
 
@@ -477,33 +512,33 @@ animation = "move"
 playing = true
 
 [node name="Legs" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 13 )
+frames = SubResource( 53 )
 animation = "move"
 playing = true
 
 [node name="Body" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 14 )
+frames = SubResource( 54 )
 animation = "move"
 playing = true
 
 [node name="Female" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
 position = Vector2( 0, 2 )
-frames = SubResource( 50 )
+frames = SubResource( 55 )
 animation = "move"
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 15 )
+frames = SubResource( 56 )
 animation = "move"
 playing = true
 
 [node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 17 )
+frames = SubResource( 57 )
 animation = "move"
 playing = true
 
 [node name="ArmFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 16 )
+frames = SubResource( 58 )
 animation = "move"
 playing = true
 
@@ -1257,7 +1292,7 @@ visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
-margin_top = -110.0
+margin_top = -134.0
 margin_right = 97.0
 margin_bottom = -5.0
 custom_styles/panel = SubResource( 21 )
@@ -1269,12 +1304,13 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 85.0
-margin_bottom = 98.0
+margin_bottom = 122.0
 custom_constants/separation = 5
 
 [node name="Idle" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_right = 78.0
 margin_bottom = 19.0
+shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Idle"
 flat = true
@@ -1283,6 +1319,7 @@ flat = true
 margin_top = 24.0
 margin_right = 78.0
 margin_bottom = 43.0
+shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Jump"
 flat = true
@@ -1291,6 +1328,7 @@ flat = true
 margin_top = 48.0
 margin_right = 78.0
 margin_bottom = 67.0
+shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Use"
 flat = true
@@ -1299,9 +1337,19 @@ flat = true
 margin_top = 72.0
 margin_right = 78.0
 margin_bottom = 91.0
+shortcut_in_tooltip = false
 pressed = true
 group = SubResource( 34 )
 text = "Move"
+flat = true
+
+[node name="Sit" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_top = 96.0
+margin_right = 78.0
+margin_bottom = 115.0
+shortcut_in_tooltip = false
+group = SubResource( 34 )
+text = "Sit"
 flat = true
 
 [node name="PlaybackPanel" type="PanelContainer" parent="."]
