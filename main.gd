@@ -8,7 +8,7 @@ var settings: Dictionary = {
 }
 var save_path = "user://previewer_settings.json"
 var default_error = ("To start, drag & drop a directory (folder) into this window.\n\n" +
-	"Structure (improtant):\n" +
+	"Structure (important):\n" +
 	"./SetName\n"+
 	"   L SetNameHead_Head.png\n" +
 	"   L SetNameBody_Body.png\n" +
@@ -40,9 +40,9 @@ func _ready() -> void:
 	save_settings()
 
 	if settings.window_position:
-		OS.window_position = str2var("Vector2" + settings.window_position)
+		OS.window_position = settings.window_position
 	if settings.window_size:
-		OS.window_size = str2var("Vector2" + settings.window_size)
+		OS.window_size = settings.window_size
 
 	$CustomWindow/TitleBar/HBoxContainer/Foreground.pressed = settings.foreground
 
@@ -135,12 +135,21 @@ func save_settings() -> void:
 func load_settings() -> void:
 	var save = File.new()
 	save.open(save_path, File.READ)
-	if save.file_exists(save_path):
-		var json = parse_json(save.get_line())
-		settings = json
-	else:
+	if not save.file_exists(save_path):
 		display_error(default_error)
+		return
 
+	var json = parse_json(save.get_line())
+	settings = json
+
+	var dir := Directory.new()
+	if not dir.dir_exists(settings.last_directory):
+		settings.last_directory = ""
+
+	if settings.window_position:
+		settings.window_position = str2var("Vector2" + settings.window_position)
+	if settings.window_size:
+		settings.window_size = str2var("Vector2" + settings.window_size)
 
 func change_setting(setting: String, value) -> void:
 	settings[setting] = value
@@ -307,7 +316,6 @@ func _on_Head_frame_changed() -> void:
 	if sprite.animation == "use":
 		match sprite.frame:
 			0, 1:
-				print("?")
 				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 6)
 			2, 3:
 				$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 5)
