@@ -75,6 +75,7 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 				},
 			"arm": {
 				"shoulder": Vector2(0, 1),
+				"shoulderBack": Vector2(1, 1),
 				"idle": [ Vector2(2, 0) ],
 				"jump": [ Vector2(2, 1) ],
 				"use":  [ Vector2(3, 0), Vector2(4, 0), Vector2(5, 0), Vector2(6, 0) ],
@@ -96,6 +97,10 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
+		"ArmFront", frame_size * pos.arm[state][arm_index],
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
 		"Body", frame_size * pos.body[state if state == "jump" else "idle"],
 		source, upshift, state, preview_images
 	)
@@ -104,11 +109,11 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"ArmFront", frame_size * pos.arm[state][arm_index],
+		"Shoulder", frame_size * pos.arm.shoulder,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Shoulder", frame_size * pos.arm.shoulder,
+		"ShoulderBack", frame_size * pos.arm.shoulderBack,
 		source, upshift, state, preview_images
 	)
 

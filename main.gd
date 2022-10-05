@@ -196,7 +196,8 @@ func next_preview_sprite_animation_frame(forward: bool):
 		if not forward: next_frame = sprite.frame -1
 
 		var frame_count: int = sprite.frames.get_frame_count(sprite.animation)
-		sprite.frame = (frame_count + next_frame) % frame_count
+		if frame_count > 0:
+			sprite.frame = (frame_count + next_frame) % frame_count
 
 
 func set_preview_sprite_animation_speed(use_fps: int, move_fps: int):
@@ -345,6 +346,10 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 
 func _on_Shoulder_toggled(button_pressed: bool) -> void:
 	$CustomWindow/PreviewControl/Shoulder.visible = button_pressed
+
+
+func _on_ShoulderBack_toggled(button_pressed: bool) -> void:
+	$CustomWindow/PreviewControl/ShoulderBack.visible = button_pressed
 
 
 func _on_Head_toggled(button_pressed: bool) -> void:

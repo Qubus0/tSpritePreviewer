@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://ui/scripts/CustomWindow.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://ui/icons/part-arm-back.png" type="Texture" id=26]
 [ext_resource path="res://ui/icons/part-shoulder.png" type="Texture" id=27]
 [ext_resource path="res://ui/icons/part-body.png" type="Texture" id=28]
+[ext_resource path="res://ui/icons/part-shoulder-back.png" type="Texture" id=29]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.396078, 0.403922, 0.403922, 1 )
@@ -41,17 +42,22 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=59]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -62,24 +68,52 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "jump",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
 } ]
 
 [sub_resource type="SpriteFrames" id=53]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -90,24 +124,24 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=54]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -118,24 +152,24 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=55]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -146,24 +180,24 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=56]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -174,24 +208,24 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=57]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -202,24 +236,24 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=58]
 animations = [ {
 "frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
+"loop": false,
+"name": "jump",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -230,11 +264,6 @@ animations = [ {
 "loop": true,
 "name": "move",
 "speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
 } ]
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -505,6 +534,11 @@ rect_scale = Vector2( 2, 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ShoulderBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 59 )
+animation = "move"
+playing = true
 
 [node name="ArmBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
 frames = SubResource( 11 )
@@ -1052,7 +1086,6 @@ tick_count = 5
 ticks_on_borders = true
 
 [node name="PartsPanel" type="PanelContainer" parent="."]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -1074,7 +1107,7 @@ custom_constants/vseparation = 5
 custom_constants/hseparation = 5
 columns = 3
 
-[node name="Shoulder" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="Shoulder" type="Button" parent="PartsPanel/Parts"]
 margin_right = 25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
@@ -1095,7 +1128,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Head" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="Head" type="Button" parent="PartsPanel/Parts"]
 margin_left = 30.0
 margin_right = 55.0
 margin_bottom = 25.0
@@ -1117,13 +1150,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HairPlaceholder" type="MarginContainer" parent="PartsPanel/Parts"]
-margin_left = 60.0
-margin_right = 85.0
-margin_bottom = 25.0
-
-[node name="Hair" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
-visible = false
+[node name="ShoulderBack" type="Button" parent="PartsPanel/Parts"]
 margin_left = 60.0
 margin_right = 85.0
 margin_bottom = 25.0
@@ -1135,17 +1162,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Hair"]
+[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ShoulderBack"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArmFront" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="ArmFront" type="Button" parent="PartsPanel/Parts"]
 margin_top = 30.0
 margin_right = 25.0
 margin_bottom = 55.0
@@ -1167,7 +1194,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Body" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="Body" type="Button" parent="PartsPanel/Parts"]
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 55.0
@@ -1190,7 +1217,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArmBack" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="ArmBack" type="Button" parent="PartsPanel/Parts"]
 margin_left = 60.0
 margin_top = 30.0
 margin_right = 85.0
@@ -1237,7 +1264,7 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Legs" type="Button" parent="PartsPanel/Parts" groups=["color_preset"]]
+[node name="Legs" type="Button" parent="PartsPanel/Parts"]
 margin_left = 30.0
 margin_top = 60.0
 margin_right = 55.0
@@ -1555,7 +1582,7 @@ margin_bottom = 15.0
 [connection signal="value_changed" from="ColorPanel/VBoxContainer/Alpha/VBoxContainer/AlphaSlider" to="." method="_on_AlphaSlider_value_changed"]
 [connection signal="toggled" from="PartsPanel/Parts/Shoulder" to="." method="_on_Shoulder_toggled"]
 [connection signal="toggled" from="PartsPanel/Parts/Head" to="." method="_on_Head_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Hair" to="." method="_on_Hair_toggled"]
+[connection signal="toggled" from="PartsPanel/Parts/ShoulderBack" to="." method="_on_ShoulderBack_toggled"]
 [connection signal="toggled" from="PartsPanel/Parts/ArmFront" to="." method="_on_ArmFront_toggled"]
 [connection signal="toggled" from="PartsPanel/Parts/Body" to="." method="_on_Body_toggled"]
 [connection signal="toggled" from="PartsPanel/Parts/ArmBack" to="." method="_on_ArmBack_toggled"]
