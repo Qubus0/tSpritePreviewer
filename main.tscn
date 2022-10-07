@@ -47,8 +47,8 @@ corner_radius_bottom_left = 10
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -62,26 +62,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=54]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -95,26 +95,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=55]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -128,26 +128,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=56]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -161,26 +161,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=57]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -194,26 +194,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=58]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -227,26 +227,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=59]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -260,26 +260,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=60]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -293,59 +293,26 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-} ]
-
-[sub_resource type="SpriteFrames" id=61]
-animations = [ {
-"frames": [  ],
-"loop": true,
 "name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "use",
 "speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
 } ]
 
 [sub_resource type="SpriteFrames" id=62]
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "special",
-"speed": 8.0
+"name": "move",
+"speed": 16.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -359,18 +326,51 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
 }, {
 "frames": [  ],
 "loop": false,
 "name": "idle",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=61]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
 } ]
 
 [sub_resource type="StyleBoxFlat" id=8]
@@ -698,13 +698,13 @@ frames = SubResource( 60 )
 animation = "move"
 playing = true
 
-[node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 61 )
+[node name="ArmFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 62 )
 animation = "move"
 playing = true
 
-[node name="ArmFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 62 )
+[node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+frames = SubResource( 61 )
 animation = "move"
 playing = true
 

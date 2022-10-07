@@ -247,6 +247,7 @@ func untoggle(button: BaseButton):
 func _on_animation_state_selected(button: BaseButton) -> void:
 	var state := button.name.to_lower()
 	set_preview_sprite_animation(state)
+	sort_animation_layers()
 
 
 func add_event_action_button_shortcut_hint_recursive(node: Node):
@@ -270,6 +271,17 @@ func add_event_action_button_shortcut_hint_recursive(node: Node):
 
 	for child_node in node.get_children():
 		add_event_action_button_shortcut_hint_recursive(child_node)
+
+
+func sort_animation_layers() -> void:
+	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
+	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
+	print(sprite.frame)
+	if (sprite.animation == "use" and (sprite.frame == 0 or sprite.frame == 1) or
+		sprite.animation == "jump"):
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 7)
+	else:
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 9)
 
 
 func _on_Quit_pressed() -> void:
@@ -330,12 +342,7 @@ func _on_Head_frame_changed() -> void:
 	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
 	var frame: String = "%02d" % (sprite.frame + 1)
 	$PlaybackPanel/HBoxContainer/FrameIndex.text = frame
-
-	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
-	if sprite.animation == "use" and (sprite.frame == 2 or sprite.frame == 3):
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 8)
-	else:
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 9)
+	sort_animation_layers()
 
 
 func _on_ColorPreset_pressed(button: Button) -> void:
