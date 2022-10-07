@@ -43,7 +43,6 @@ func _on_TitleBar_gui_input(event: InputEvent) -> void:
 		OS.window_position += get_global_mouse_position() - drag_start_position
 
 
-
 func _on_CustomWindow_gui_input(event: InputEvent) -> void:
 	var side_flags := 0000
 
@@ -81,15 +80,15 @@ func _on_CustomWindow_gui_input(event: InputEvent) -> void:
 		var new_window_position := OS.window_position
 		# side + each adjacent corner
 		if current_side_flags in [ 1000, 1100, 1001 ]:
-				new_window_size.y -= mouse_drag.relative.y
-				new_window_position.y += mouse_drag.relative.y
+			new_window_size.y -= mouse_drag.relative.y
+			new_window_position.y += mouse_drag.relative.y
 		if current_side_flags in [ 0100, 0110, 1100 ]:
-				new_window_size.x += mouse_drag.relative.x
+			new_window_size.x += mouse_drag.relative.x
 		if current_side_flags in [ 0010, 0110, 0011 ]:
-				new_window_size.y += mouse_drag.relative.y
+			new_window_size.y += mouse_drag.relative.y
 		if current_side_flags in [ 0001, 1001, 0011 ]:
-				new_window_position.x += mouse_drag.relative.x
-				new_window_size.x -= mouse_drag.relative.x
+			new_window_position.x += mouse_drag.relative.x
+			new_window_size.x -= mouse_drag.relative.x
 
 		# positions and size are not directly set to have a minimum window size
 		# if the window size gets smaller it is set to a fxied size here
@@ -138,19 +137,6 @@ func hide_title_bar() -> void:
 func is_hovering_title_bar() -> bool:
 	return $TitleBar.get_global_rect().has_point(get_global_mouse_position())
 
-
-func preview_image(preview_images: Dictionary):
-	for set_part in preview_images.keys():
-		var preview_sprite: AnimatedSprite = $PreviewControl.get_node_or_null(set_part)
-		if not preview_sprite:
-			continue
-		for state in preview_images[set_part].keys():
-			for frame in preview_images[set_part][state]:
-				preview_sprite.frames.add_frame(state, frame)
-
-#	for state in set.preview_images.keys():
-#		for frame in set.preview_images[state]:
-#			preview.frames.add_frame(state, frame)
 
 func _on_CustomWindow_resized() -> void:
 

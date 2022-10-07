@@ -29,21 +29,25 @@ func compile_set_image(set_images: Array) -> void:
 				preview.blend_rect(src, Rect2(src_pos, frame_size), preview_pos)
 				add_part_preview_images(state, preview_images, preview, part_type)
 
-			if state == "idle":
-				if part_type == "Legs":
-					# the sitting legs are just taking the idle frames legs and editing them
-					preview.fill(Color.transparent)
-					# l 46-52 up 4, right 4
-					var bottom_lines = Rect2(Vector2(0, 46), Vector2(frame_size.x, 12))
-					preview.blend_rect(src, bottom_lines, preview_pos + bottom_lines.position + Vector2(4, -4))
-					# l 44-45 up 2, right 2
-					var mid_line = Rect2(Vector2(0, 44), Vector2(frame_size.x, 2))
-					preview.blend_rect(src, mid_line, preview_pos + mid_line.position + Vector2(2, -2))
-					# l 42-43 copy on top
-					var top_line = Rect2(Vector2(0, 42), Vector2(frame_size.x, 2))
-					preview.blend_rect(src, top_line, preview_pos + top_line.position)
+				if state == "use":
+					add_part_preview_images("special", preview_images, preview, part_type)
 
-				add_part_preview_images("sit", preview_images, preview, part_type)
+				if state == "idle":
+					if part_type == "Legs":
+						# the sitting legs are just taking the idle frames legs and editing them
+						preview.fill(Color.transparent)
+						# l 46-52 up 4, right 4
+						var bottom_lines = Rect2(Vector2(0, 46), Vector2(frame_size.x, 12))
+						preview.blend_rect(src, bottom_lines, preview_pos + bottom_lines.position + Vector2(4, -4))
+						# l 44-45 up 2, right 2
+						var mid_line = Rect2(Vector2(0, 44), Vector2(frame_size.x, 2))
+						preview.blend_rect(src, mid_line, preview_pos + mid_line.position + Vector2(2, -2))
+						# l 42-43 copy on top
+						var top_line = Rect2(Vector2(0, 42), Vector2(frame_size.x, 2))
+						preview.blend_rect(src, top_line, preview_pos + top_line.position)
+					add_part_preview_images("sit", preview_images, preview, part_type)
+
+
 	emit_signal("preview", preview_images)
 
 
@@ -62,35 +66,38 @@ func add_part_preview_images(state: String, preview_images: Dictionary, preview:
 			"jump": [],
 			"use": [],
 			"move": [],
-			"sit": []
+			"sit": [],
+			"special": [],
 		}
 	preview_images[part_type][state].append(texture)
 
 
 func extract_body_and_arm_preview_images(frame: int, source: Image, preview_images: Dictionary) -> void:
 	var pos = { # coordinates for the body spritesheet
-			"body": {
-				"idle": Vector2(0, 0),
-				"jump": Vector2(1, 0),
-				},
-			"arm": {
-				"shoulder": Vector2(0, 1),
-				"shoulderBack": Vector2(1, 1),
-				"idle": [ Vector2(2, 0) ],
-				"jump": [ Vector2(2, 1) ],
-				"use":  [ Vector2(3, 0), Vector2(4, 0), Vector2(5, 0), Vector2(6, 0) ],
-				"move": [ Vector2(3, 1), Vector2(4, 1), Vector2(5, 1), Vector2(6, 1) ],
+		"body": {
+			"idle": Vector2(0, 0),
+			"jump": Vector2(1, 0),
 			},
-			# back arm and female is the same as front and male, with this offset
-			"alt_offset": Vector2(0, 2),
-		}
+		"arm": {
+			"shoulder": Vector2(0, 1),
+			"shoulderBack": Vector2(1, 1),
+			"idle": [ Vector2(2, 0) ],
+			"jump": [ Vector2(2, 1) ],
+			"use":  [ Vector2(3, 0), Vector2(4, 0), Vector2(5, 0), Vector2(6, 0) ],
+			"move": [ Vector2(3, 1), Vector2(4, 1), Vector2(5, 1), Vector2(6, 1) ],
+			"specialFront": [ Vector2(7, 0), Vector2(7, 1), Vector2(7, 2), Vector2(7, 3) ],
+			"specialBack": [ Vector2(8, 0), Vector2(8, 1), Vector2(8, 2), Vector2(8, 3) ],
+		},
+		# back arm and female is the same as front and male, with this offset
+		"alt_offset": Vector2(0, 2),
+	}
 
 	var state: String = get_state(frame)
 	var arm_index: int = get_arm_index(frame)
 	var upshift := Vector2.ZERO # this shifts the body sprite up when the foot is up
 	match frame:
 		7,8,9,14,15,16:
-			upshift = Vector2(0 , -2)
+			upshift = Vector2(0, -2)
 
 	add_body_part_preview_from_position(
 		"ArmBack", frame_size * (pos.arm[state][arm_index] + pos.alt_offset),
@@ -105,7 +112,7 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Female", frame_size * pos.body[state if state == "jump" else "idle"] + pos.alt_offset,
+		"Female", frame_size * (pos.body[state if state == "jump" else "idle"] + pos.alt_offset),
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
@@ -114,6 +121,14 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 	)
 	add_body_part_preview_from_position(
 		"ShoulderBack", frame_size * pos.arm.shoulderBack,
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ArmSpecialBack", frame_size * pos.arm.specialBack[arm_index],
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ArmSpecialFront", frame_size * pos.arm.specialFront[arm_index],
 		source, upshift, state, preview_images
 	)
 
@@ -130,6 +145,8 @@ func add_body_part_preview_from_position(part_type: String, position: Vector2, s
 	add_part_preview_images(state, preview_images, preview, part_type)
 	if state == "idle":
 		add_part_preview_images("sit", preview_images, preview, part_type)
+	if state == "use":
+		add_part_preview_images("special", preview_images, preview, part_type)
 
 
 # up frames and arm positions (0 midback, 1 back, 1 midfront, 3 front)

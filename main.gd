@@ -20,6 +20,10 @@ var transparency_percentage := 100.0
 var presets_group: ButtonGroup
 
 var btn_to_be_untoggled: BaseButton
+var arm_front_visible := true
+var arm_back_visible := true
+var arm_special := false
+
 
 var watcher = DirectoryWatcher.new()
 
@@ -53,7 +57,7 @@ func _ready() -> void:
 	get_tree().connect("files_dropped", self, "files_dropped")
 	add_event_action_button_shortcut_hint_recursive(self)
 	setup_button_connections()
-	$"/root/ImageFactory".connect("preview", $CustomWindow, "preview_image")
+	$"/root/ImageFactory".connect("preview", self, "preview_image")
 	$CustomWindow.connect("change_setting", self, "change_setting")
 
 	if settings.last_directory:
@@ -87,6 +91,15 @@ func files_dropped(paths: PoolStringArray, _screen: int):
 
 func files_modified(files: Array):
 	create_preview(settings.last_directory)
+
+
+func preview_image(preview_images: Dictionary):
+	for set_part in preview_images.keys():
+		var preview_sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[set_part]
+
+		for state in preview_images[set_part].keys():
+			for frame in preview_images[set_part][state]:
+				preview_sprite.frames.add_frame(state, frame)
 
 
 func create_preview(directory_path: String) -> void:
@@ -151,6 +164,7 @@ func load_settings() -> void:
 	if settings.window_size:
 		settings.window_size = str2var("Vector2" + settings.window_size)
 
+
 func change_setting(setting: String, value) -> void:
 	settings[setting] = value
 	save_settings()
@@ -166,32 +180,33 @@ func set_background_color(color: Color):
 
 func clear_preview_sprites() -> int:
 	var last_frame = {}
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite: AnimatedSprite = preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 		last_frame = sprite.frame
 		sprite.frames.clear("idle")
 		sprite.frames.clear("jump")
 		sprite.frames.clear("use")
 		sprite.frames.clear("move")
 		sprite.frames.clear("sit")
+		sprite.frames.clear("special")
 	return last_frame
 
 
 func set_preview_sprite_playing(is_playing: bool) -> void:
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite := preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 		sprite.playing = is_playing
 
 
 func set_preview_sprite_animation(animation: String) -> void:
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite := preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 		sprite.animation = animation
 
 
 func next_preview_sprite_animation_frame(forward: bool):
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite := preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 		var next_frame: int = sprite.frame + 1
 		if not forward: next_frame = sprite.frame -1
 
@@ -201,15 +216,16 @@ func next_preview_sprite_animation_frame(forward: bool):
 
 
 func set_preview_sprite_animation_speed(use_fps: int, move_fps: int):
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite := preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 		sprite.frames.set_animation_speed("use", use_fps)
+		sprite.frames.set_animation_speed("special", use_fps)
 		sprite.frames.set_animation_speed("move", move_fps)
 
 
 func set_preview_sprite_frame(frame: int):
-	for preview_sprite in $CustomWindow/PreviewControl.get_children():
-		var sprite := preview_sprite as AnimatedSprite
+	for part_type in $CustomWindow/PreviewControl.previews.keys():
+		var sprite := $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
 
 		var frame_count: int = sprite.frames.get_frame_count(sprite.animation)
 		if frame_count > 0:
@@ -317,9 +333,9 @@ func _on_Head_frame_changed() -> void:
 
 	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
 	if sprite.animation == "use" and (sprite.frame == 2 or sprite.frame == 3):
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 5)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 8)
 	else:
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 6)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ArmFront, 9)
 
 
 func _on_ColorPreset_pressed(button: Button) -> void:
@@ -340,7 +356,7 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 	if new_text.is_valid_html_color():
 		self.background_color = Color(new_text)
 		if presets_group:
-			var btn :=  presets_group.get_pressed_button()
+			var btn := presets_group.get_pressed_button()
 			if btn: btn.pressed = false
 
 
@@ -361,16 +377,25 @@ func _on_Hair_toggled(button_pressed: bool) -> void:
 
 
 func _on_ArmFront_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/ArmFront.visible = button_pressed
+	arm_front_visible = button_pressed
+	if arm_special:
+		$CustomWindow/PreviewControl/ArmSpecialFront.visible = arm_front_visible
+	else:
+		$CustomWindow/PreviewControl/ArmFront.visible = arm_front_visible
 
 
 func _on_Body_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Body.visible = button_pressed
-	$CustomWindow/PreviewControl/Female.visible = button_pressed
+	var male = $PartsPanel/Parts/Male.pressed
+	$CustomWindow/PreviewControl/Body.visible = male and button_pressed
+	$CustomWindow/PreviewControl/Female.visible = not male and button_pressed
 
 
 func _on_ArmBack_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/ArmBack.visible = button_pressed
+	arm_back_visible = button_pressed
+	if arm_special:
+		$CustomWindow/PreviewControl/ArmSpecialBack.visible = arm_back_visible
+	else:
+		$CustomWindow/PreviewControl/ArmBack.visible = arm_back_visible
 
 
 func _on_Legs_toggled(button_pressed: bool) -> void:
@@ -386,4 +411,11 @@ func _on_Male_toggled(button_pressed: bool) -> void:
 	$CustomWindow/PreviewControl/Body.visible = button_pressed
 	$PartsPanel/Parts/Body.pressed = true
 
+
+func _on_Special_toggled(button_pressed: bool) -> void:
+	arm_special = button_pressed
+	$CustomWindow/PreviewControl/ArmSpecialFront.visible = arm_front_visible and arm_special
+	$CustomWindow/PreviewControl/ArmSpecialBack.visible = arm_back_visible and arm_special
+	$CustomWindow/PreviewControl/ArmFront.visible = arm_front_visible and not arm_special
+	$CustomWindow/PreviewControl/ArmBack.visible = arm_back_visible and not arm_special
 
