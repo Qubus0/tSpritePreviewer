@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://ui/scripts/CustomWindow.gd" type="Script" id=2]
@@ -43,7 +43,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="SpriteFrames" id=53]
+[sub_resource type="SpriteFrames" id=65]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -56,14 +56,47 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=63]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -89,14 +122,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -122,14 +155,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -155,14 +188,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -188,14 +221,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -221,14 +254,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -254,14 +287,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -287,14 +320,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -320,14 +353,14 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -340,7 +373,7 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="SpriteFrames" id=61]
+[sub_resource type="SpriteFrames" id=66]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -353,14 +386,47 @@ animations = [ {
 "speed": 0.0
 }, {
 "frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
 "loop": false,
 "name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=64]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
 "speed": 0.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "special",
 "speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -644,8 +710,14 @@ __meta__ = {
 }
 
 [node name="ShoulderBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 53 )
-animation = "special"
+frames = SubResource( 65 )
+animation = "move"
+playing = true
+
+[node name="ShoulderFemaleBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+visible = false
+frames = SubResource( 63 )
+animation = "move"
 playing = true
 
 [node name="ArmBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
@@ -704,7 +776,13 @@ animation = "move"
 playing = true
 
 [node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 61 )
+frames = SubResource( 66 )
+animation = "move"
+playing = true
+
+[node name="ShoulderFemale" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
+visible = false
+frames = SubResource( 64 )
 animation = "move"
 playing = true
 

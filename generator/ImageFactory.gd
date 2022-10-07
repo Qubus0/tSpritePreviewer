@@ -96,39 +96,50 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 	var arm_index: int = get_arm_index(frame)
 	var upshift := Vector2.ZERO # this shifts the body sprite up when the foot is up
 	match frame:
-		7,8,9,14,15,16:
+		7, 8, 9, 14, 15, 16:
 			upshift = Vector2(0, -2)
 
 	add_body_part_preview_from_position(
-		"ArmBack", frame_size * (pos.arm[state][arm_index] + pos.alt_offset),
+		"ArmBack", pos.arm[state][arm_index] + pos.alt_offset,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"ArmFront", frame_size * pos.arm[state][arm_index],
+		"ArmFront", pos.arm[state][arm_index],
+		source, upshift, state, preview_images
+	)
+
+	add_body_part_preview_from_position(
+		"Body", pos.body[state if state == "jump" else "idle"],
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Body", frame_size * pos.body[state if state == "jump" else "idle"],
+		"Female", pos.body[state if state == "jump" else "idle"] + pos.alt_offset,
+		source, upshift, state, preview_images
+	)
+
+	add_body_part_preview_from_position(
+		"Shoulder", pos.arm.shoulder,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Female", frame_size * (pos.body[state if state == "jump" else "idle"] + pos.alt_offset),
+		"ShoulderBack", pos.arm.shoulderBack,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Shoulder", frame_size * pos.arm.shoulder,
+		"ShoulderFemale", pos.arm.shoulder + pos.alt_offset,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"ShoulderBack", frame_size * pos.arm.shoulderBack,
+		"ShoulderFemaleBack", pos.arm.shoulderBack + pos.alt_offset,
+		source, upshift, state, preview_images
+	)
+
+	add_body_part_preview_from_position(
+		"ArmSpecialBack", pos.arm.specialBack[arm_index],
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"ArmSpecialBack", frame_size * pos.arm.specialBack[arm_index],
-		source, upshift, state, preview_images
-	)
-	add_body_part_preview_from_position(
-		"ArmSpecialFront", frame_size * pos.arm.specialFront[arm_index],
+		"ArmSpecialFront", pos.arm.specialFront[arm_index],
 		source, upshift, state, preview_images
 	)
 
@@ -139,7 +150,7 @@ func add_body_part_preview_from_position(part_type: String, position: Vector2, s
 	var preview = create_empty_preview()
 	preview.blend_rect(
 		source,
-		Rect2(position, frame_size),
+		Rect2(frame_size * position, frame_size),
 		preview_pos + upshift
 	)
 	add_part_preview_images(state, preview_images, preview, part_type)

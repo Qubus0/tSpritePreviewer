@@ -276,12 +276,13 @@ func add_event_action_button_shortcut_hint_recursive(node: Node):
 func sort_animation_layers() -> void:
 	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
 	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
-	print(sprite.frame)
 	if (sprite.animation == "use" and (sprite.frame == 0 or sprite.frame == 1) or
 		sprite.animation == "jump"):
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 7)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 8)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ShoulderFemale, 9)
 	else:
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 9)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 11)
+		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ShoulderFemale, 12)
 
 
 func _on_Quit_pressed() -> void:
@@ -368,11 +369,15 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 
 
 func _on_Shoulder_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Shoulder.visible = button_pressed
+	var male = $PartsPanel/Parts/Male.pressed
+	$CustomWindow/PreviewControl/Shoulder.visible = male and button_pressed
+	$CustomWindow/PreviewControl/ShoulderFemale.visible = not male and button_pressed
 
 
 func _on_ShoulderBack_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/ShoulderBack.visible = button_pressed
+	var male = $PartsPanel/Parts/Male.pressed
+	$CustomWindow/PreviewControl/ShoulderBack.visible = male and button_pressed
+	$CustomWindow/PreviewControl/ShoulderFemaleBack.visible = not male and button_pressed
 
 
 func _on_Head_toggled(button_pressed: bool) -> void:
@@ -411,12 +416,14 @@ func _on_Legs_toggled(button_pressed: bool) -> void:
 
 func _on_Female_toggled(button_pressed: bool) -> void:
 	$CustomWindow/PreviewControl/Female.visible = button_pressed
-	$PartsPanel/Parts/Body.pressed = true
+	$CustomWindow/PreviewControl/ShoulderFemale.visible = button_pressed
+	$CustomWindow/PreviewControl/ShoulderFemaleBack.visible = button_pressed
 
 
 func _on_Male_toggled(button_pressed: bool) -> void:
 	$CustomWindow/PreviewControl/Body.visible = button_pressed
-	$PartsPanel/Parts/Body.pressed = true
+	$CustomWindow/PreviewControl/Shoulder.visible = button_pressed
+	$CustomWindow/PreviewControl/ShoulderBack.visible = button_pressed
 
 
 func _on_Special_toggled(button_pressed: bool) -> void:
