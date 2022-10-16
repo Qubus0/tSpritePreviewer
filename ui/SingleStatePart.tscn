@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/PreviewSpriteFrams.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://ui/scripts/PreviewPart.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+} ]
+
+[node name="SingleStatePart" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State0Player" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "move"
+playing = true
+
+[node name="State0Clothes" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 2 )
+animation = "move"
+playing = true
+
+[node name="State0" type="AnimatedSprite" parent="."]
+frames = ExtResource( 1 )
+animation = "move"
+playing = true

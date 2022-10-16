@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://ui/scripts/CustomWindow.gd" type="Script" id=2]
@@ -29,7 +29,11 @@
 [ext_resource path="res://ui/icons/part-shoulder.png" type="Texture" id=27]
 [ext_resource path="res://ui/icons/part-body.png" type="Texture" id=28]
 [ext_resource path="res://ui/icons/part-shoulder-back.png" type="Texture" id=29]
-[ext_resource path="res://PreviewControl.gd" type="Script" id=30]
+[ext_resource path="res://ui/PreviewControl.tscn" type="PackedScene" id=30]
+[ext_resource path="res://ui/icons/person.svg" type="Texture" id=31]
+[ext_resource path="res://ui/icons/shirt.svg" type="Texture" id=32]
+[ext_resource path="res://ui/icons/part-hair-alt.png" type="Texture" id=33]
+[ext_resource path="res://ui/icons/part-hair.png" type="Texture" id=34]
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.396078, 0.403922, 0.403922, 1 )
@@ -42,402 +46,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="SpriteFrames" id=65]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=63]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=54]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=55]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=56]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=57]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=58]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=59]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=60]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=62]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=66]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
-
-[sub_resource type="SpriteFrames" id=64]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "jump",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "use",
-"speed": 8.0
-} ]
 
 [sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 5.0
@@ -628,6 +236,9 @@ Button/styles/hover = SubResource( 46 )
 Button/styles/normal = SubResource( 18 )
 Button/styles/pressed = SubResource( 47 )
 
+[sub_resource type="ButtonGroup" id=53]
+resource_name = "Hair"
+
 [sub_resource type="ButtonGroup" id=49]
 
 [sub_resource type="ButtonGroup" id=34]
@@ -698,93 +309,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PreviewControl" type="Control" parent="CustomWindow"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-rect_scale = Vector2( 2, 2 )
-script = ExtResource( 30 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ShoulderBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 65 )
-animation = "move"
-playing = true
-
-[node name="ShoulderFemaleBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-visible = false
-frames = SubResource( 63 )
-animation = "move"
-playing = true
-
-[node name="ArmBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 54 )
-animation = "move"
-playing = true
-
-[node name="ArmSpecialBack" type="Position2D" parent="CustomWindow/PreviewControl"]
-visible = false
-position = Vector2( 5, 4 )
-rotation = 1.5708
-
-[node name="ArmSpecialBack" type="AnimatedSprite" parent="CustomWindow/PreviewControl/ArmSpecialBack"]
-position = Vector2( -4, 5 )
-rotation = -1.5708
-frames = SubResource( 55 )
-animation = "move"
-playing = true
-
-[node name="Legs" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 56 )
-animation = "move"
-playing = true
-
-[node name="Body" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 57 )
-animation = "move"
-playing = true
-
-[node name="Female" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-visible = false
-frames = SubResource( 58 )
-animation = "move"
-playing = true
-
-[node name="Head" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 59 )
-animation = "move"
-playing = true
-
-[node name="ArmSpecialFront" type="Position2D" parent="CustomWindow/PreviewControl"]
-visible = false
-position = Vector2( -5, 4 )
-rotation = 1.5708
-
-[node name="ArmSpecialFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl/ArmSpecialFront"]
-position = Vector2( -4.00002, -5 )
-rotation = -1.5708
-frames = SubResource( 60 )
-animation = "move"
-playing = true
-
-[node name="ArmFront" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 62 )
-animation = "move"
-playing = true
-
-[node name="Shoulder" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-frames = SubResource( 66 )
-animation = "move"
-playing = true
-
-[node name="ShoulderFemale" type="AnimatedSprite" parent="CustomWindow/PreviewControl"]
-visible = false
-frames = SubResource( 64 )
-animation = "move"
-playing = true
+[node name="EquipmentPreview" parent="CustomWindow" instance=ExtResource( 30 )]
 
 [node name="TitleBar" type="PanelContainer" parent="CustomWindow"]
 anchor_right = 1.0
@@ -810,6 +335,7 @@ margin_right = 15.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 15, 15 )
 hint_tooltip = "Pick background color"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 custom_styles/hover = SubResource( 22 )
 custom_styles/pressed = SubResource( 35 )
@@ -981,36 +507,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPanel" type="PanelContainer" parent="."]
-visible = false
+[node name="PanelTween" type="Tween" parent="."]
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="Margin"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 251.0
+margin_bottom = 251.0
+mouse_filter = 2
+
+[node name="ColorPanel" type="PanelContainer" parent="Margin/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = -137.0
-margin_right = 164.0
-margin_bottom = -5.0
+margin_top = -132.0
+margin_right = 159.0
 custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Control/ColorPanel"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 152.0
 margin_bottom = 125.0
 custom_constants/separation = 5
 
-[node name="Presets" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+[node name="Presets" type="HBoxContainer" parent="Margin/Control/ColorPanel/VBoxContainer"]
 margin_right = 145.0
 margin_bottom = 25.0
 custom_constants/separation = 5
 alignment = 1
 
-[node name="ColorPreset1" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+[node name="ColorPreset1" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
 margin_right = 25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1018,7 +563,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset1"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets/ColorPreset1"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1027,11 +572,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset2" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+[node name="ColorPreset2" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
 margin_left = 30.0
 margin_right = 55.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1039,7 +585,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset2"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets/ColorPreset2"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1049,11 +595,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset3" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+[node name="ColorPreset3" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
 margin_left = 60.0
 margin_right = 85.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1061,7 +608,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset3"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets/ColorPreset3"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1071,11 +618,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset4" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+[node name="ColorPreset4" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
 margin_left = 90.0
 margin_right = 115.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1084,7 +632,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset4"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets/ColorPreset4"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1094,11 +642,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset5" type="Button" parent="ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
+[node name="ColorPreset5" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets" groups=["color_preset"]]
 margin_left = 120.0
 margin_right = 145.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1106,7 +655,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets/ColorPreset5"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets/ColorPreset5"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1116,17 +665,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Presets2" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+[node name="Presets2" type="HBoxContainer" parent="Margin/Control/ColorPanel/VBoxContainer"]
 margin_top = 30.0
 margin_right = 145.0
 margin_bottom = 55.0
 custom_constants/separation = 5
 alignment = 1
 
-[node name="ColorPreset1" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+[node name="ColorPreset1" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
 margin_right = 25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Preset Forrest"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1134,7 +685,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset1"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2/ColorPreset1"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1144,11 +695,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset2" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+[node name="ColorPreset2" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
 margin_left = 30.0
 margin_right = 55.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Preset Desert"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1156,7 +709,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset2"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2/ColorPreset2"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1166,11 +719,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset3" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+[node name="ColorPreset3" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
 margin_left = 60.0
 margin_right = 85.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Preset Corruption"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1178,7 +733,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset3"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2/ColorPreset3"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1188,11 +743,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset4" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+[node name="ColorPreset4" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
 margin_left = 90.0
 margin_right = 115.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Preset Crimson"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1200,7 +757,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset4"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2/ColorPreset4"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1210,11 +767,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPreset5" type="Button" parent="ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
+[node name="ColorPreset5" type="Button" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2" groups=["color_preset"]]
 margin_left = 120.0
 margin_right = 145.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Preset Jungle"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 group = ExtResource( 11 )
@@ -1222,7 +781,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Color" type="ColorRect" parent="ColorPanel/VBoxContainer/Presets2/ColorPreset5"]
+[node name="Color" type="ColorRect" parent="Margin/Control/ColorPanel/VBoxContainer/Presets2/ColorPreset5"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1232,12 +791,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Spacer" type="MarginContainer" parent="ColorPanel/VBoxContainer"]
+[node name="Spacer" type="MarginContainer" parent="Margin/Control/ColorPanel/VBoxContainer"]
 margin_top = 60.0
 margin_right = 145.0
 margin_bottom = 60.0
 
-[node name="ColorCode" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+[node name="ColorCode" type="HBoxContainer" parent="Margin/Control/ColorPanel/VBoxContainer"]
 margin_top = 65.0
 margin_right = 145.0
 margin_bottom = 91.0
@@ -1245,7 +804,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="ColorPanel/VBoxContainer/ColorCode"]
+[node name="Label" type="Label" parent="Margin/Control/ColorPanel/VBoxContainer/ColorCode"]
 show_behind_parent = true
 margin_top = 3.0
 margin_right = 67.0
@@ -1253,11 +812,12 @@ margin_bottom = 22.0
 size_flags_horizontal = 3
 text = "Exact #"
 
-[node name="ColorHexInput" type="LineEdit" parent="ColorPanel/VBoxContainer/ColorCode"]
+[node name="ColorHexInput" type="LineEdit" parent="Margin/Control/ColorPanel/VBoxContainer/ColorCode"]
 margin_left = 71.0
 margin_right = 145.0
 margin_bottom = 26.0
 rect_min_size = Vector2( 74, 0 )
+hint_tooltip = "Background color as six digit hex code"
 max_length = 6
 expand_to_text_length = true
 context_menu_enabled = false
@@ -1265,12 +825,12 @@ placeholder_text = "000000"
 placeholder_alpha = 0.4
 script = ExtResource( 10 )
 
-[node name="Alpha" type="HBoxContainer" parent="ColorPanel/VBoxContainer"]
+[node name="Alpha" type="HBoxContainer" parent="Margin/Control/ColorPanel/VBoxContainer"]
 margin_top = 96.0
 margin_right = 145.0
 margin_bottom = 118.0
 
-[node name="Label" type="Label" parent="ColorPanel/VBoxContainer/Alpha"]
+[node name="Label" type="Label" parent="Margin/Control/ColorPanel/VBoxContainer/Alpha"]
 margin_right = 40.0
 margin_bottom = 22.0
 rect_min_size = Vector2( 40, 0 )
@@ -1278,72 +838,80 @@ custom_fonts/font = SubResource( 52 )
 text = "100%"
 align = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorPanel/VBoxContainer/Alpha"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Control/ColorPanel/VBoxContainer/Alpha"]
 margin_left = 44.0
 margin_right = 145.0
 margin_bottom = 22.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="AlphaSlider" type="HSlider" parent="ColorPanel/VBoxContainer/Alpha/VBoxContainer"]
+[node name="AlphaSlider" type="HSlider" parent="Margin/Control/ColorPanel/VBoxContainer/Alpha/VBoxContainer"]
 margin_top = 3.0
 margin_right = 101.0
 margin_bottom = 19.0
+hint_tooltip = "Background transparency"
+mouse_default_cursor_shape = 10
 size_flags_horizontal = 3
+step = 5.0
 value = 100.0
 rounded = true
 tick_count = 5
 ticks_on_borders = true
 
-[node name="PartsPanel" type="PanelContainer" parent="."]
-visible = false
+[node name="PartsPanel" type="PanelContainer" parent="Margin/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = -108.0
-margin_right = 102.0
-margin_bottom = -5.0
+margin_top = -198.0
+margin_right = 99.0
 custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Parts" type="GridContainer" parent="PartsPanel"]
+[node name="Container" type="VBoxContainer" parent="Margin/Control/PartsPanel"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 92.0
-margin_bottom = 96.0
+margin_bottom = 191.0
+custom_constants/separation = 14
+
+[node name="EquipmentParts" type="GridContainer" parent="Margin/Control/PartsPanel/Container"]
+margin_right = 85.0
+margin_bottom = 85.0
 theme = SubResource( 48 )
 custom_constants/vseparation = 5
 custom_constants/hseparation = 5
 columns = 3
 
-[node name="Shoulder" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentHair" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts" groups=["untoggle"]]
 margin_right = 25.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Full hair"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
-pressed = true
+group = SubResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Shoulder"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHair"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 27 )
+texture = ExtResource( 34 )
 expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Head" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentHead" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_left = 30.0
 margin_right = 55.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1351,7 +919,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Head"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHead"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 22 )
@@ -1361,33 +929,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShoulderBack" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentHairAlt" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts" groups=["untoggle"]]
 margin_left = 60.0
 margin_right = 85.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 25, 25 )
+hint_tooltip = "Squished hair"
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
-pressed = true
+group = SubResource( 53 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ShoulderBack"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHairAlt"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 29 )
+texture = ExtResource( 33 )
 expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArmFront" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentArmFront" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_top = 30.0
 margin_right = 25.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1395,7 +966,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ArmFront"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentArmFront"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 21 )
@@ -1405,12 +976,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Body" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentBody" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_left = 30.0
 margin_top = 30.0
 margin_right = 55.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1418,7 +990,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Body"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentBody"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 28 )
@@ -1428,12 +1000,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ArmBack" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentArmBack" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_left = 60.0
 margin_top = 30.0
 margin_right = 85.0
 margin_bottom = 55.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1441,7 +1014,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/ArmBack"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentArmBack"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 26 )
@@ -1451,7 +1024,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Female" type="TextureButton" parent="PartsPanel/Parts"]
+[node name="Female" type="TextureButton" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_top = 60.0
 margin_right = 25.0
 margin_bottom = 85.0
@@ -1475,12 +1048,13 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Legs" type="Button" parent="PartsPanel/Parts"]
+[node name="EquipmentLegs" type="Button" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 margin_left = 30.0
 margin_top = 60.0
 margin_right = 55.0
 margin_bottom = 85.0
 rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 9 )
 toggle_mode = true
 pressed = true
@@ -1488,7 +1062,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="PartsPanel/Parts/Legs"]
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentLegs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 25 )
@@ -1498,7 +1072,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Male" type="TextureButton" parent="PartsPanel/Parts"]
+[node name="Male" type="TextureButton" parent="Margin/Control/PartsPanel/Container/EquipmentParts"]
 self_modulate = Color( 0.458824, 0.796078, 1, 1 )
 margin_left = 60.0
 margin_top = 60.0
@@ -1525,100 +1099,324 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="AnimationPanel" type="PanelContainer" parent="."]
-visible = false
+[node name="Parts" type="GridContainer" parent="Margin/Control/PartsPanel/Container"]
+margin_top = 99.0
+margin_right = 85.0
+margin_bottom = 184.0
+theme = SubResource( 48 )
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 3
+
+[node name="Shoulder" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_right = 25.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/Shoulder"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Head" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_left = 30.0
+margin_right = 55.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/Head"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShoulderBack" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_left = 60.0
+margin_right = 85.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/ShoulderBack"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 29 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmFront" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_top = 30.0
+margin_right = 25.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/ArmFront"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 21 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 55.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 28 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmBack" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 85.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/ArmBack"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowPlayer" type="TextureButton" parent="Margin/Control/PartsPanel/Container/Parts"]
+self_modulate = Color( 0.458824, 0.796078, 1, 1 )
+margin_top = 60.0
+margin_right = 25.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Show Player"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+texture_normal = ExtResource( 31 )
+texture_pressed = ExtResource( 31 )
+texture_hover = ExtResource( 31 )
+texture_disabled = ExtResource( 31 )
+texture_focused = ExtResource( 31 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="Legs" type="Button" parent="Margin/Control/PartsPanel/Container/Parts"]
+margin_left = 30.0
+margin_top = 60.0
+margin_right = 55.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 25, 25 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 9 )
+toggle_mode = true
+pressed = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Margin/Control/PartsPanel/Container/Parts/Legs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 25 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowClothes" type="TextureButton" parent="Margin/Control/PartsPanel/Container/Parts"]
+self_modulate = Color( 0.458824, 0.796078, 1, 1 )
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 85.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 15, 15 )
+hint_tooltip = "Show Player clothes"
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+toggle_mode = true
+shortcut_in_tooltip = false
+pressed = true
+texture_normal = ExtResource( 32 )
+texture_pressed = ExtResource( 32 )
+texture_hover = ExtResource( 32 )
+texture_disabled = ExtResource( 32 )
+texture_focused = ExtResource( 32 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+icon_color_normal = Color( 1, 1, 1, 1 )
+icon_color_focus = Color( 0, 0.623529, 1, 1 )
+icon_color_hover = Color( 0, 0.623529, 1, 1 )
+icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
+
+[node name="AnimationPanel" type="PanelContainer" parent="Margin/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = -158.0
-margin_right = 97.0
-margin_bottom = -5.0
+margin_top = -153.0
+margin_right = 86.0
 custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AnimationPanel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Control/AnimationPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 85.0
+margin_right = 79.0
 margin_bottom = 146.0
 custom_constants/separation = 5
 
-[node name="Idle" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
-margin_right = 78.0
+[node name="Idle" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
+margin_right = 72.0
 margin_bottom = 19.0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Idle"
 flat = true
 
-[node name="Jump" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+[node name="Jump" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_top = 24.0
-margin_right = 78.0
+margin_right = 72.0
 margin_bottom = 43.0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Jump"
 flat = true
 
-[node name="Use" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+[node name="Use" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_top = 48.0
-margin_right = 78.0
+margin_right = 72.0
 margin_bottom = 67.0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Use"
 flat = true
 
-[node name="Move" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+[node name="Move" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_top = 72.0
-margin_right = 78.0
+margin_right = 72.0
 margin_bottom = 91.0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 pressed = true
 group = SubResource( 34 )
 text = "Move"
 flat = true
 
-[node name="Sit" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+[node name="Sit" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_top = 96.0
-margin_right = 78.0
+margin_right = 72.0
 margin_bottom = 115.0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Sit"
 flat = true
 
-[node name="Special" type="CheckBox" parent="AnimationPanel/VBoxContainer" groups=["animation_state"]]
+[node name="Special" type="CheckBox" parent="Margin/Control/AnimationPanel/VBoxContainer" groups=["animation_state"]]
 margin_top = 120.0
-margin_right = 78.0
+margin_right = 72.0
 margin_bottom = 139.0
+hint_tooltip = "Golf, Petting, Eating"
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 group = SubResource( 34 )
 text = "Special"
 flat = true
 
-[node name="PlaybackPanel" type="PanelContainer" parent="."]
-visible = false
+[node name="PlaybackPanel" type="PanelContainer" parent="Margin/Control"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = -34.0
-margin_right = 167.0
-margin_bottom = -5.0
+margin_top = -29.0
+margin_right = 162.0
 custom_styles/panel = SubResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PlaybackPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/Control/PlaybackPanel"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 155.0
 margin_bottom = 22.0
 
-[node name="PreviousFrame" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="PreviousFrame" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_right = 15.0
 margin_bottom = 15.0
 rect_min_size = Vector2( 15, 15 )
@@ -1640,7 +1438,7 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="PausePlay" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="PausePlay" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 19.0
 margin_right = 34.0
 margin_bottom = 15.0
@@ -1665,7 +1463,7 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 1, 1, 1, 1 )
 
-[node name="NextFrame" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="NextFrame" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 38.0
 margin_right = 53.0
 margin_bottom = 15.0
@@ -1688,13 +1486,13 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Spacer" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+[node name="Spacer" type="MarginContainer" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 57.0
 margin_right = 62.0
 margin_bottom = 15.0
 custom_constants/margin_right = 5
 
-[node name="Speed1" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="Speed1" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 66.0
 margin_right = 81.0
 margin_bottom = 15.0
@@ -1718,7 +1516,7 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Speed2" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="Speed2" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 self_modulate = Color( 0.458824, 0.796078, 1, 1 )
 margin_left = 85.0
 margin_right = 100.0
@@ -1744,7 +1542,7 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Speed3" type="TextureButton" parent="PlaybackPanel/HBoxContainer"]
+[node name="Speed3" type="TextureButton" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 104.0
 margin_right = 119.0
 margin_bottom = 15.0
@@ -1768,27 +1566,29 @@ icon_color_focus = Color( 0, 0.623529, 1, 1 )
 icon_color_hover = Color( 0, 0.623529, 1, 1 )
 icon_color_pressed = Color( 0.458824, 0.796078, 1, 1 )
 
-[node name="Spacer2" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+[node name="Spacer2" type="MarginContainer" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 123.0
 margin_right = 128.0
 margin_bottom = 15.0
 custom_constants/margin_right = 5
 
-[node name="FrameIndex" type="Label" parent="PlaybackPanel/HBoxContainer"]
+[node name="FrameIndex" type="Label" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 132.0
 margin_right = 144.0
 margin_bottom = 14.0
+hint_tooltip = "Current frame"
+mouse_filter = 1
 custom_fonts/font = SubResource( 39 )
 text = "11"
 
-[node name="Spacer3" type="MarginContainer" parent="PlaybackPanel/HBoxContainer"]
+[node name="Spacer3" type="MarginContainer" parent="Margin/Control/PlaybackPanel/HBoxContainer"]
 margin_left = 148.0
 margin_right = 148.0
 margin_bottom = 15.0
 
 [connection signal="gui_input" from="CustomWindow" to="CustomWindow" method="_on_CustomWindow_gui_input"]
 [connection signal="resized" from="CustomWindow" to="CustomWindow" method="_on_CustomWindow_resized"]
-[connection signal="frame_changed" from="CustomWindow/PreviewControl/Head" to="." method="_on_Head_frame_changed"]
+[connection signal="frame_changed" from="CustomWindow/EquipmentPreview" to="." method="_on_EquipmentPreview_frame_changed"]
 [connection signal="gui_input" from="CustomWindow/TitleBar" to="CustomWindow" method="_on_TitleBar_gui_input"]
 [connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/ColorPicker" to="." method="_on_ColorPicker_toggled"]
 [connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Parts" to="." method="_on_Parts_toggled"]
@@ -1796,23 +1596,31 @@ margin_bottom = 15.0
 [connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Playback" to="." method="_on_Playback_toggled"]
 [connection signal="toggled" from="CustomWindow/TitleBar/HBoxContainer/Foreground" to="." method="_on_Foreground_toggled"]
 [connection signal="pressed" from="CustomWindow/TitleBar/HBoxContainer/Quit" to="." method="_on_Quit_pressed"]
-[connection signal="text_change_rejected" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_change_rejected"]
-[connection signal="text_changed" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="." method="_on_ColorHexInput_text_changed"]
-[connection signal="text_changed" from="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_changed"]
-[connection signal="value_changed" from="ColorPanel/VBoxContainer/Alpha/VBoxContainer/AlphaSlider" to="." method="_on_AlphaSlider_value_changed"]
-[connection signal="toggled" from="PartsPanel/Parts/Shoulder" to="." method="_on_Shoulder_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Head" to="." method="_on_Head_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/ShoulderBack" to="." method="_on_ShoulderBack_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/ArmFront" to="." method="_on_ArmFront_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Body" to="." method="_on_Body_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/ArmBack" to="." method="_on_ArmBack_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Female" to="." method="_on_Female_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Legs" to="." method="_on_Legs_toggled"]
-[connection signal="toggled" from="PartsPanel/Parts/Male" to="." method="_on_Male_toggled"]
-[connection signal="toggled" from="AnimationPanel/VBoxContainer/Special" to="." method="_on_Special_toggled"]
-[connection signal="pressed" from="PlaybackPanel/HBoxContainer/PreviousFrame" to="." method="_on_PreviousFrame_pressed"]
-[connection signal="toggled" from="PlaybackPanel/HBoxContainer/PausePlay" to="." method="_on_PausePlay_toggled"]
-[connection signal="pressed" from="PlaybackPanel/HBoxContainer/NextFrame" to="." method="_on_NextFrame_pressed"]
-[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed1" to="." method="_on_Speed1_toggled"]
-[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed2" to="." method="_on_Speed2_toggled"]
-[connection signal="toggled" from="PlaybackPanel/HBoxContainer/Speed3" to="." method="_on_Speed3_toggled"]
+[connection signal="text_change_rejected" from="Margin/Control/ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="Margin/Control/ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_change_rejected"]
+[connection signal="text_changed" from="Margin/Control/ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="." method="_on_ColorHexInput_text_changed"]
+[connection signal="text_changed" from="Margin/Control/ColorPanel/VBoxContainer/ColorCode/ColorHexInput" to="Margin/Control/ColorPanel/VBoxContainer/ColorCode/ColorHexInput" method="_on_ColorHexInput_text_changed"]
+[connection signal="value_changed" from="Margin/Control/ColorPanel/VBoxContainer/Alpha/VBoxContainer/AlphaSlider" to="." method="_on_AlphaSlider_value_changed"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHair" to="." method="_on_EquipmentHair_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHead" to="." method="_on_EquipmentHead_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentHairAlt" to="." method="_on_EquipmentHairAlt_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentArmFront" to="." method="_on_EquipmentArmFront_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentBody" to="." method="_on_EquipmentBody_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentArmBack" to="." method="_on_EquipmentArmBack_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/EquipmentLegs" to="." method="_on_EquipmentLegs_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/EquipmentParts/Male" to="." method="_on_Male_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/Shoulder" to="." method="_on_Shoulder_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/Head" to="." method="_on_Head_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/ShoulderBack" to="." method="_on_ShoulderBack_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/ArmFront" to="." method="_on_ArmFront_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/Body" to="." method="_on_Body_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/ArmBack" to="." method="_on_ArmBack_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/ShowPlayer" to="." method="_on_ShowPlayer_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/Legs" to="." method="_on_Legs_toggled"]
+[connection signal="toggled" from="Margin/Control/PartsPanel/Container/Parts/ShowClothes" to="." method="_on_ShowClothes_toggled"]
+[connection signal="toggled" from="Margin/Control/AnimationPanel/VBoxContainer/Special" to="." method="_on_Special_toggled"]
+[connection signal="pressed" from="Margin/Control/PlaybackPanel/HBoxContainer/PreviousFrame" to="." method="_on_PreviousFrame_pressed"]
+[connection signal="toggled" from="Margin/Control/PlaybackPanel/HBoxContainer/PausePlay" to="." method="_on_PausePlay_toggled"]
+[connection signal="pressed" from="Margin/Control/PlaybackPanel/HBoxContainer/NextFrame" to="." method="_on_NextFrame_pressed"]
+[connection signal="toggled" from="Margin/Control/PlaybackPanel/HBoxContainer/Speed1" to="." method="_on_Speed1_toggled"]
+[connection signal="toggled" from="Margin/Control/PlaybackPanel/HBoxContainer/Speed2" to="." method="_on_Speed2_toggled"]
+[connection signal="toggled" from="Margin/Control/PlaybackPanel/HBoxContainer/Speed3" to="." method="_on_Speed3_toggled"]

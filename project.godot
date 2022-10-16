@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "DirectoryWatcher",
 "language": "GDScript",
 "path": "res://generator/DirectoryWatcher.gd"
+}, {
+"base": "Control",
+"class": "PreviewControl",
+"language": "GDScript",
+"path": "res://PreviewControl.gd"
+}, {
+"base": "Control",
+"class": "PreviewPart",
+"language": "GDScript",
+"path": "res://ui/scripts/PreviewPart.gd"
 } ]
 _global_script_class_icons={
-"DirectoryWatcher": ""
+"DirectoryWatcher": "",
+"PreviewControl": "",
+"PreviewPart": ""
 }
 
 [application]

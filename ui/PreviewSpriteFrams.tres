@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" format=2]
+
+[resource]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]

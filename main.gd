@@ -20,19 +20,17 @@ var transparency_percentage := 100.0
 var presets_group: ButtonGroup
 
 var btn_to_be_untoggled: BaseButton
-var arm_front_visible := true
-var arm_back_visible := true
-var arm_special := false
-
 
 var watcher = DirectoryWatcher.new()
 
 onready var background: Panel = $Background
 onready var color_picker: Button = $CustomWindow/TitleBar/HBoxContainer/ColorPicker
-onready var color_panel: PanelContainer = $ColorPanel
-onready var parts_panel: PanelContainer = $PartsPanel
-onready var animation_panel: PanelContainer = $AnimationPanel
-onready var playback_panel: PanelContainer = $PlaybackPanel
+onready var color_panel: PanelContainer = $Margin/Control/ColorPanel
+onready var parts_panel: PanelContainer = $Margin/Control/PartsPanel
+onready var animation_panel: PanelContainer = $Margin/Control/AnimationPanel
+onready var playback_panel: PanelContainer = $Margin/Control/PlaybackPanel
+
+onready var equipment_preview: PreviewControl = $CustomWindow/EquipmentPreview
 
 
 func _ready() -> void:
@@ -44,11 +42,17 @@ func _ready() -> void:
 	save_settings()
 
 	if settings.window_position:
-		OS.window_position = settings.window_position
+		if not settings.window_position > OS.get_screen_size() and not settings.window_position < Vector2.ZERO:
+			OS.window_position = settings.window_position
 	if settings.window_size:
 		OS.window_size = settings.window_size
+		$CustomWindow.adjust_preview_size()
 
 	$CustomWindow/TitleBar/HBoxContainer/Foreground.pressed = settings.foreground
+	toggle_panel(color_panel, false, 0)
+	toggle_panel(parts_panel, false, 0)
+	toggle_panel(animation_panel, false, 0)
+	toggle_panel(playback_panel, false, 0)
 
 	add_child(watcher)
 	watcher.connect("files_modified", self, "files_modified")
@@ -56,10 +60,11 @@ func _ready() -> void:
 
 	get_tree().connect("files_dropped", self, "files_dropped")
 	add_event_action_button_shortcut_hint_recursive(self)
+	setup_defocus_ui_elements_recursive(self)
 	setup_button_connections()
-	$"/root/ImageFactory".connect("preview", self, "preview_image")
 	$CustomWindow.connect("change_setting", self, "change_setting")
 
+	create_player_previews()
 	if settings.last_directory:
 		watcher.add_scan_directory(settings.last_directory)
 		create_preview(settings.last_directory)
@@ -93,19 +98,11 @@ func files_modified(files: Array):
 	create_preview(settings.last_directory)
 
 
-func preview_image(preview_images: Dictionary):
-	for set_part in preview_images.keys():
-		var preview_sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[set_part]
-
-		for state in preview_images[set_part].keys():
-			for frame in preview_images[set_part][state]:
-				preview_sprite.frames.add_frame(state, frame)
-
-
 func create_preview(directory_path: String) -> void:
-	var last_frame = clear_preview_sprites()
-	var preview_images := ItemFileReader.get_set_information(directory_path)
-	if preview_images.empty():
+	equipment_preview.set_preview_sprite_playing(false)
+	var last_frame = equipment_preview.clear_preview_sprites()
+	var item_images := ItemFileReader.get_set_information(directory_path)
+	if item_images.empty():
 		display_error("Nothing to display.\n" +
 		"Did you follow the naming convention?\n\n" +
 		"./SetName (folder)\n"+
@@ -113,8 +110,22 @@ func create_preview(directory_path: String) -> void:
 		"   L SetNameBody_Body.png\n" +
 		"   L SetNameLegs_Legs.png\n"
 		)
-	ImageFactory.compile_set_image(preview_images)
-	set_preview_sprite_frame(last_frame)
+	var preview_images = ImageFactory.compile_set_images(item_images)
+	equipment_preview.create_preview(preview_images)
+	equipment_preview.set_preview_sprite_frame(last_frame)
+	equipment_preview.set_preview_sprite_playing(true)
+
+
+func create_player_previews() -> void:
+	create_preset_preview("Player")
+	create_preset_preview("Clothes")
+	create_preset_preview("HairClothes")
+
+
+func create_preset_preview(part: String) -> void:
+	var images := ItemFileReader.get_set_information("res://images/player/" + part)
+	var preview_images := ImageFactory.compile_set_images(images, part)
+	equipment_preview.create_preview(preview_images)
 
 
 func setup_button_connections() -> void:
@@ -178,60 +189,6 @@ func set_background_color(color: Color):
 	color_picker.get_stylebox("hover").bg_color = color
 
 
-func clear_preview_sprites() -> int:
-	var last_frame = {}
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-		last_frame = sprite.frame
-		sprite.frames.clear("idle")
-		sprite.frames.clear("jump")
-		sprite.frames.clear("use")
-		sprite.frames.clear("move")
-		sprite.frames.clear("sit")
-		sprite.frames.clear("special")
-	return last_frame
-
-
-func set_preview_sprite_playing(is_playing: bool) -> void:
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-		sprite.playing = is_playing
-
-
-func set_preview_sprite_animation(animation: String) -> void:
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-		sprite.animation = animation
-
-
-func next_preview_sprite_animation_frame(forward: bool):
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-		var next_frame: int = sprite.frame + 1
-		if not forward: next_frame = sprite.frame -1
-
-		var frame_count: int = sprite.frames.get_frame_count(sprite.animation)
-		if frame_count > 0:
-			sprite.frame = (frame_count + next_frame) % frame_count
-
-
-func set_preview_sprite_animation_speed(use_fps: int, move_fps: int):
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite: AnimatedSprite = $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-		sprite.frames.set_animation_speed("use", use_fps)
-		sprite.frames.set_animation_speed("special", use_fps)
-		sprite.frames.set_animation_speed("move", move_fps)
-
-
-func set_preview_sprite_frame(frame: int):
-	for part_type in $CustomWindow/PreviewControl.previews.keys():
-		var sprite := $CustomWindow/PreviewControl.previews[part_type] as AnimatedSprite
-
-		var frame_count: int = sprite.frames.get_frame_count(sprite.animation)
-		if frame_count > 0:
-			sprite.frame = frame % frame_count
-
-
 func ready_untoggle(button: BaseButton):
 	if button.pressed:
 		btn_to_be_untoggled = button
@@ -244,13 +201,7 @@ func untoggle(button: BaseButton):
 		button.release_focus()
 
 
-func _on_animation_state_selected(button: BaseButton) -> void:
-	var state := button.name.to_lower()
-	set_preview_sprite_animation(state)
-	sort_animation_layers()
-
-
-func add_event_action_button_shortcut_hint_recursive(node: Node):
+func add_event_action_button_shortcut_hint_recursive(node: Node) -> void:
 	var button := node as BaseButton
 	if button and button.shortcut:
 		var input_action := button.shortcut.shortcut as InputEventAction
@@ -273,16 +224,42 @@ func add_event_action_button_shortcut_hint_recursive(node: Node):
 		add_event_action_button_shortcut_hint_recursive(child_node)
 
 
-func sort_animation_layers() -> void:
-	# use anim: shoulder is only behind the arm at frames 0, 1 not 2, 3
-	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
-	if (sprite.animation == "use" and (sprite.frame == 0 or sprite.frame == 1) or
-		sprite.animation == "jump"):
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 8)
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ShoulderFemale, 9)
-	else:
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/Shoulder, 11)
-		$CustomWindow/PreviewControl.move_child($CustomWindow/PreviewControl/ShoulderFemale, 12)
+func setup_defocus_ui_elements_recursive(node: Node) -> void:
+	# stops confusing interactions because things never release focus in godot
+	# not the greatest for accessibility though
+	if node is BaseButton:
+		node.connect("pressed", self, "unfocus_after_interaction", [null, node])
+
+	if node is Slider:
+		node.connect("value_changed", self, "unfocus_after_interaction", [node])
+
+	for child_node in node.get_children():
+		setup_defocus_ui_elements_recursive(child_node)
+
+
+func unfocus_after_interaction(_val, control: Control) -> void:
+	control.release_focus()
+
+
+func _on_animation_state_selected(button: BaseButton) -> void:
+	var state := button.name.to_lower()
+	equipment_preview.set_preview_sprite_animation(state)
+	equipment_preview.sort_animation_layers()
+
+
+func toggle_panel(panel: PanelContainer, make_visible: bool, time_s = .3) -> void:
+	var tw: Tween = $PanelTween
+	var start := panel.margin_top
+	var end := panel.margin_top - 400 if make_visible else panel.margin_top + 400
+	tw.interpolate_property(
+		panel, "margin_top", start, end,
+		time_s, Tween.TRANS_CIRC, Tween.EASE_IN_OUT
+	)
+	tw.start()
+
+
+func _on_EquipmentPreview_frame_changed(frame) -> void:
+	$Margin/Control/PlaybackPanel/HBoxContainer/FrameIndex.text = "%02d" % (frame + 1)
 
 
 func _on_Quit_pressed() -> void:
@@ -296,54 +273,46 @@ func _on_Foreground_toggled(button_pressed: bool) -> void:
 
 
 func _on_ColorPicker_toggled(button_pressed: bool) -> void:
-	color_panel.visible = button_pressed
+	toggle_panel(color_panel, button_pressed)
 
 
 func _on_Parts_toggled(button_pressed: bool) -> void:
-	parts_panel.visible = button_pressed
+	toggle_panel(parts_panel, button_pressed)
 
 
 func _on_Animations_toggled(button_pressed: bool) -> void:
-	animation_panel.visible = button_pressed
+	toggle_panel(animation_panel, button_pressed)
 
 
 func _on_Playback_toggled(button_pressed: bool) -> void:
-	playback_panel.visible = button_pressed
+	toggle_panel(playback_panel, button_pressed)
 
 
 func _on_PausePlay_toggled(button_pressed: bool) -> void:
-	set_preview_sprite_playing(button_pressed)
+	equipment_preview.set_preview_sprite_playing(button_pressed)
 
 
 func _on_PreviousFrame_pressed() -> void:
-	next_preview_sprite_animation_frame(false)
+	equipment_preview.next_preview_sprite_animation_frame(false)
 
 
 func _on_NextFrame_pressed() -> void:
-	next_preview_sprite_animation_frame(true)
+	equipment_preview.next_preview_sprite_animation_frame(true)
 
 
 func _on_Speed1_toggled(_button_pressed: bool) -> void:
-	$PlaybackPanel/HBoxContainer/PausePlay.pressed = true
-	set_preview_sprite_animation_speed(1, 1)
+	$Margin/Control/PlaybackPanel/HBoxContainer/PausePlay.pressed = true
+	equipment_preview.set_preview_sprite_animation_speed(1, 1)
 
 
 func _on_Speed2_toggled(_button_pressed: bool) -> void:
-	$PlaybackPanel/HBoxContainer/PausePlay.pressed = true
-	set_preview_sprite_animation_speed(8, 16)
+	$Margin/Control/PlaybackPanel/HBoxContainer/PausePlay.pressed = true
+	equipment_preview.set_preview_sprite_animation_speed(8, 16)
 
 
 func _on_Speed3_toggled(_button_pressed: bool) -> void:
-	$PlaybackPanel/HBoxContainer/PausePlay.pressed = true
-	set_preview_sprite_animation_speed(8*2, 16*2)
-
-
-func _on_Head_frame_changed() -> void:
-	# frames on all animations are always in sync -> only need to check one
-	var sprite: AnimatedSprite = $CustomWindow/PreviewControl/Head
-	var frame: String = "%02d" % (sprite.frame + 1)
-	$PlaybackPanel/HBoxContainer/FrameIndex.text = frame
-	sort_animation_layers()
+	$Margin/Control/PlaybackPanel/HBoxContainer/PausePlay.pressed = true
+	equipment_preview.set_preview_sprite_animation_speed(8*2, 16*2)
 
 
 func _on_ColorPreset_pressed(button: Button) -> void:
@@ -357,7 +326,7 @@ func _on_ColorPreset_pressed(button: Button) -> void:
 func _on_AlphaSlider_value_changed(value: float) -> void:
 	transparency_percentage = value
 	self.background_color.a = transparency_percentage/100
-	$ColorPanel/VBoxContainer/Alpha/Label.text = "%s%%" % transparency_percentage
+	$Margin/Control/ColorPanel/VBoxContainer/Alpha/Label.text = "%s%%" % transparency_percentage
 
 
 func _on_ColorHexInput_text_changed(new_text: String) -> void:
@@ -368,68 +337,77 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 			if btn: btn.pressed = false
 
 
+func _on_Head_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_part("Head", button_pressed)
+
+
+func _on_EquipmentHead_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_equipment_part("Head", button_pressed)
+
+
 func _on_Shoulder_toggled(button_pressed: bool) -> void:
-	var male = $PartsPanel/Parts/Male.pressed
-	$CustomWindow/PreviewControl/Shoulder.visible = male and button_pressed
-	$CustomWindow/PreviewControl/ShoulderFemale.visible = not male and button_pressed
+	equipment_preview.toggle_part("ShoulderFront", button_pressed)
 
 
 func _on_ShoulderBack_toggled(button_pressed: bool) -> void:
-	var male = $PartsPanel/Parts/Male.pressed
-	$CustomWindow/PreviewControl/ShoulderBack.visible = male and button_pressed
-	$CustomWindow/PreviewControl/ShoulderFemaleBack.visible = not male and button_pressed
-
-
-func _on_Head_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Head.visible = button_pressed
-
-
-func _on_Hair_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Hair.visible = button_pressed
+	equipment_preview.toggle_part("ShoulderBack", button_pressed)
 
 
 func _on_ArmFront_toggled(button_pressed: bool) -> void:
-	arm_front_visible = button_pressed
-	if arm_special:
-		$CustomWindow/PreviewControl/ArmSpecialFront.visible = arm_front_visible
-	else:
-		$CustomWindow/PreviewControl/ArmFront.visible = arm_front_visible
+	equipment_preview.toggle_part("ArmFront", button_pressed)
 
 
-func _on_Body_toggled(button_pressed: bool) -> void:
-	var male = $PartsPanel/Parts/Male.pressed
-	$CustomWindow/PreviewControl/Body.visible = male and button_pressed
-	$CustomWindow/PreviewControl/Female.visible = not male and button_pressed
+func _on_EquipmentArmFront_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_equipment_part("ArmFront", button_pressed)
+	equipment_preview.toggle_equipment_part("ShoulderFront", button_pressed)
 
 
 func _on_ArmBack_toggled(button_pressed: bool) -> void:
-	arm_back_visible = button_pressed
-	if arm_special:
-		$CustomWindow/PreviewControl/ArmSpecialBack.visible = arm_back_visible
-	else:
-		$CustomWindow/PreviewControl/ArmBack.visible = arm_back_visible
+	equipment_preview.toggle_part("ArmBack", button_pressed)
+
+
+func _on_EquipmentArmBack_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_equipment_part("ArmBack", button_pressed)
+	equipment_preview.toggle_equipment_part("ShoulderBack", button_pressed)
+
+
+func _on_Body_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_part("Body", button_pressed)
+
+
+func _on_EquipmentBody_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_equipment_part("Body", button_pressed)
 
 
 func _on_Legs_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Legs.visible = button_pressed
+	equipment_preview.toggle_part("Legs", button_pressed)
 
 
-func _on_Female_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Female.visible = button_pressed
-	$CustomWindow/PreviewControl/ShoulderFemale.visible = button_pressed
-	$CustomWindow/PreviewControl/ShoulderFemaleBack.visible = button_pressed
+func _on_EquipmentLegs_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_equipment_part("Legs", button_pressed)
 
 
 func _on_Male_toggled(button_pressed: bool) -> void:
-	$CustomWindow/PreviewControl/Body.visible = button_pressed
-	$CustomWindow/PreviewControl/Shoulder.visible = button_pressed
-	$CustomWindow/PreviewControl/ShoulderBack.visible = button_pressed
+	# when Female button is pressed, this untoggles -> only need one func
+	equipment_preview.toggle_male_female(button_pressed)
 
 
 func _on_Special_toggled(button_pressed: bool) -> void:
-	arm_special = button_pressed
-	$CustomWindow/PreviewControl/ArmSpecialFront.visible = arm_front_visible and arm_special
-	$CustomWindow/PreviewControl/ArmSpecialBack.visible = arm_back_visible and arm_special
-	$CustomWindow/PreviewControl/ArmFront.visible = arm_front_visible and not arm_special
-	$CustomWindow/PreviewControl/ArmBack.visible = arm_back_visible and not arm_special
+	equipment_preview.toggle_special_arm(button_pressed)
+
+
+func _on_EquipmentHair_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_clothes_state0("Head", button_pressed)
+
+
+func _on_EquipmentHairAlt_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_clothes_state1("Head", button_pressed)
+
+
+func _on_ShowPlayer_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_player_visible(button_pressed)
+
+
+func _on_ShowClothes_toggled(button_pressed: bool) -> void:
+	equipment_preview.toggle_clothes_visible(button_pressed)
 

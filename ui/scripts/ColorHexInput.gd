@@ -15,3 +15,9 @@ func _on_ColorHexInput_text_changed(new_text: String) -> void:
 		last_reject = ""
 		self.text = hex
 		emit_signal("text_changed", hex)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.scancode == KEY_ENTER or event.scancode == KEY_ESCAPE:
+			release_focus()

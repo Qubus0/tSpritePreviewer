@@ -1,0 +1,249 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui/scripts/PreviewPart.gd" type="Script" id=2]
+
+[sub_resource type="SpriteFrames" id=64]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=65]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=66]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=67]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=68]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=69]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[node name="BinaryStatePart" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="State0Player" type="AnimatedSprite" parent="."]
+frames = SubResource( 64 )
+animation = "move"
+playing = true
+
+[node name="State1Player" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 65 )
+animation = "move"
+playing = true
+
+[node name="State0Clothes" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 66 )
+animation = "move"
+playing = true
+
+[node name="State1Clothes" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 67 )
+animation = "move"
+playing = true
+
+[node name="State0" type="AnimatedSprite" parent="."]
+frames = SubResource( 68 )
+animation = "move"
+playing = true
+
+[node name="State1" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 69 )
+animation = "move"
+playing = true

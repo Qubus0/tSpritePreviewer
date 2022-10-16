@@ -1,0 +1,548 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://PreviewControl.gd" type="Script" id=1]
+[ext_resource path="res://ui/BinaryStatePart.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/scripts/PreviewPart.gd" type="Script" id=3]
+[ext_resource path="res://ui/SingleStatePart.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpriteFrames" id=68]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=69]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=54]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=70]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=71]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=67]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=73]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=74]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=72]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=76]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=77]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[sub_resource type="SpriteFrames" id=75]
+resource_local_to_scene = true
+animations = [ {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "use",
+"speed": 8.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+} ]
+
+[node name="PreviewControl" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+rect_scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShoulderBack" parent="." instance=ExtResource( 2 )]
+_state0 = "Male"
+_state1 = "Female"
+
+[node name="ArmBack" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_state1 = "Special"
+
+[node name="State0Player" type="AnimatedSprite" parent="ArmBack"]
+frames = SubResource( 68 )
+animation = "move"
+playing = true
+
+[node name="State0Clothes" type="AnimatedSprite" parent="ArmBack"]
+visible = false
+frames = SubResource( 69 )
+animation = "move"
+playing = true
+
+[node name="State0" type="AnimatedSprite" parent="ArmBack"]
+frames = SubResource( 54 )
+animation = "move"
+playing = true
+
+[node name="SpecialPivot" type="Position2D" parent="ArmBack"]
+position = Vector2( 5, 4 )
+rotation = 1.5708
+
+[node name="State1Player" type="AnimatedSprite" parent="ArmBack/SpecialPivot"]
+visible = false
+position = Vector2( -4, 5 )
+rotation = -1.5708
+frames = SubResource( 70 )
+animation = "move"
+playing = true
+
+[node name="State1Clothes" type="AnimatedSprite" parent="ArmBack/SpecialPivot"]
+visible = false
+position = Vector2( -4, 5 )
+rotation = -1.5708
+frames = SubResource( 71 )
+animation = "move"
+playing = true
+
+[node name="State1" type="AnimatedSprite" parent="ArmBack/SpecialPivot"]
+visible = false
+position = Vector2( -4, 5 )
+rotation = -1.5708
+frames = SubResource( 67 )
+animation = "move"
+playing = true
+
+[node name="Legs" parent="." instance=ExtResource( 4 )]
+
+[node name="Body" parent="." instance=ExtResource( 2 )]
+_state0 = "Male"
+_state1 = "Female"
+
+[node name="Head" parent="." instance=ExtResource( 2 )]
+_state1 = "Hair"
+
+[node name="ArmFront" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_state1 = "Special"
+
+[node name="State0Player" type="AnimatedSprite" parent="ArmFront"]
+frames = SubResource( 73 )
+animation = "move"
+playing = true
+
+[node name="State0Clothes" type="AnimatedSprite" parent="ArmFront"]
+visible = false
+frames = SubResource( 74 )
+animation = "move"
+playing = true
+
+[node name="State0" type="AnimatedSprite" parent="ArmFront"]
+frames = SubResource( 72 )
+animation = "move"
+playing = true
+
+[node name="SpecialPivot" type="Position2D" parent="ArmFront"]
+position = Vector2( -5, 4 )
+rotation = 1.5708
+
+[node name="State1Player" type="AnimatedSprite" parent="ArmFront/SpecialPivot"]
+visible = false
+position = Vector2( -4, -5 )
+rotation = -1.5708
+frames = SubResource( 76 )
+animation = "move"
+playing = true
+
+[node name="State1Clothes" type="AnimatedSprite" parent="ArmFront/SpecialPivot"]
+visible = false
+position = Vector2( -4, -5 )
+rotation = -1.5708
+frames = SubResource( 77 )
+animation = "move"
+playing = true
+
+[node name="State1" type="AnimatedSprite" parent="ArmFront/SpecialPivot"]
+visible = false
+position = Vector2( -4, -5 )
+rotation = -1.5708
+frames = SubResource( 75 )
+animation = "move"
+playing = true
+
+[node name="ShoulderFront" parent="." instance=ExtResource( 2 )]
+_state0 = "Male"
+_state1 = "Female"

@@ -138,17 +138,20 @@ func is_hovering_title_bar() -> bool:
 	return $TitleBar.get_global_rect().has_point(get_global_mouse_position())
 
 
-func _on_CustomWindow_resized() -> void:
-
+func adjust_preview_size() -> void:
 	var window_size : Vector2 = self.rect_size
-	var scale : Vector2 = window_size - preview_size * $PreviewControl.rect_scale
+	var scale : Vector2 = window_size - preview_size * $EquipmentPreview.rect_scale
 	if scale.x > 100 and scale.y > 100:
-		$PreviewControl.rect_scale += Vector2(1, 1)
+		$EquipmentPreview.rect_scale += Vector2(1, 1)
 	elif scale.x < 0 or scale.y < 0:
-		if not $PreviewControl.rect_scale == Vector2(1, 1):
-			$PreviewControl.rect_scale -= Vector2(1, 1)
+		if not $EquipmentPreview.rect_scale == Vector2(1, 1):
+			$EquipmentPreview.rect_scale -= Vector2(1, 1)
 
 	# debugging
-	$ReferenceRect.rect_position = window_size/2 - (preview_size * $PreviewControl.rect_scale) / 2
-	$ReferenceRect.rect_size = (preview_size * $PreviewControl.rect_scale)
+	$ReferenceRect.rect_position = window_size/2 - (preview_size * $EquipmentPreview.rect_scale) / 2
+	$ReferenceRect.rect_size = (preview_size * $EquipmentPreview.rect_scale)
+
+
+func _on_CustomWindow_resized() -> void:
+	adjust_preview_size()
 

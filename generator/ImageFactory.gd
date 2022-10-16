@@ -1,14 +1,12 @@
 extends Node
 
-signal preview
-
 var frame_size : Vector2 = Vector2(40, 56)
 var frame_count : int = 20;
 var preview_size = 70
 var preview_pos = Vector2(preview_size/2 - frame_size.x/2, 2+ preview_size/2 - frame_size.y/2)
 
 
-func compile_set_image(set_images: Array) -> void:
+func compile_set_images(set_images: Array, name_suffix: String = "") -> Dictionary:
 	var preview_images := {}
 	var src_pos : Vector2 = Vector2.ZERO
 	var src : Image
@@ -47,8 +45,13 @@ func compile_set_image(set_images: Array) -> void:
 						preview.blend_rect(src, top_line, preview_pos + top_line.position)
 					add_part_preview_images("sit", preview_images, preview, part_type)
 
+	if name_suffix: # used for player underlay
+		var prefixed_images := {}
+		for key in preview_images.keys():
+			prefixed_images[key + name_suffix] = preview_images[key]
+		return prefixed_images
 
-	emit_signal("preview", preview_images)
+	return preview_images
 
 
 func create_empty_preview() -> Image:
@@ -109,37 +112,37 @@ func extract_body_and_arm_preview_images(frame: int, source: Image, preview_imag
 	)
 
 	add_body_part_preview_from_position(
-		"Body", pos.body[state if state == "jump" else "idle"],
+		"BodyMale", pos.body[state if state == "jump" else "idle"],
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"Female", pos.body[state if state == "jump" else "idle"] + pos.alt_offset,
-		source, upshift, state, preview_images
-	)
-
-	add_body_part_preview_from_position(
-		"Shoulder", pos.arm.shoulder,
-		source, upshift, state, preview_images
-	)
-	add_body_part_preview_from_position(
-		"ShoulderBack", pos.arm.shoulderBack,
-		source, upshift, state, preview_images
-	)
-	add_body_part_preview_from_position(
-		"ShoulderFemale", pos.arm.shoulder + pos.alt_offset,
-		source, upshift, state, preview_images
-	)
-	add_body_part_preview_from_position(
-		"ShoulderFemaleBack", pos.arm.shoulderBack + pos.alt_offset,
+		"BodyFemale", pos.body[state if state == "jump" else "idle"] + pos.alt_offset,
 		source, upshift, state, preview_images
 	)
 
 	add_body_part_preview_from_position(
-		"ArmSpecialBack", pos.arm.specialBack[arm_index],
+		"ShoulderFrontMale", pos.arm.shoulder,
 		source, upshift, state, preview_images
 	)
 	add_body_part_preview_from_position(
-		"ArmSpecialFront", pos.arm.specialFront[arm_index],
+		"ShoulderBackMale", pos.arm.shoulderBack,
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ShoulderFrontFemale", pos.arm.shoulder + pos.alt_offset,
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ShoulderBackFemale", pos.arm.shoulderBack + pos.alt_offset,
+		source, upshift, state, preview_images
+	)
+
+	add_body_part_preview_from_position(
+		"ArmBackSpecial", pos.arm.specialBack[arm_index],
+		source, upshift, state, preview_images
+	)
+	add_body_part_preview_from_position(
+		"ArmFrontSpecial", pos.arm.specialFront[arm_index],
 		source, upshift, state, preview_images
 	)
 
