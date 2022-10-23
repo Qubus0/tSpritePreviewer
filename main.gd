@@ -32,6 +32,42 @@ onready var playback_panel: PanelContainer = $Margin/Control/PlaybackPanel
 
 onready var equipment_preview: PreviewControl = $CustomWindow/EquipmentPreview
 
+var player_sprites := {
+	"Player": [
+		{
+			"image": preload("res://images/player/Player/PlayerHead_Head.png"),
+			"name": "PlayerHead_Head",
+		},
+		{
+			"image": preload("res://images/player/Player/PlayerBody_Body.png"),
+			"name": "PlayerBody_Body",
+		},
+		{
+			"image": preload("res://images/player/Player/PlayerLegs_Legs.png"),
+			"name": "PlayerLegs_Legs",
+		},
+	],
+	"Clothes": [
+		{
+			"image": preload("res://images/player/Clothes/ClothesHead_Head.png"),
+			"name": "ClothesHead_Head",
+		},
+		{
+			"image": preload("res://images/player/Clothes/ClothesBody_Body.png"),
+			"name": "ClothesBody_Body",
+		},
+		{
+			"image": preload("res://images/player/Clothes/ClothesLegs_Legs.png"),
+			"name": "ClothesLegs_Legs",
+		},
+	],
+	"HairClothes": [
+		{
+			"image": preload("res://images/player/HairClothes/HairClothesHead_Head.png"),
+			"name": "HairClothesHead_Head",
+		},
+	],
+}
 
 func _ready() -> void:
 #	if OS.get_screen_scale() and OS.get_screen_scale() == 2:
@@ -123,7 +159,7 @@ func create_player_previews() -> void:
 
 
 func create_preset_preview(part: String) -> void:
-	var images := ItemFileReader.get_set_information("res://images/player/" + part)
+	var images: Array = player_sprites[part]
 	var preview_images := ImageFactory.compile_set_images(images, part)
 	equipment_preview.create_preview(preview_images)
 

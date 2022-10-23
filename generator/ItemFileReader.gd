@@ -34,6 +34,7 @@ func get_set_information(set_directory_path: String) -> Array:
 		if file_name in possible_file_names: # character sprites end in _Head, _Body ...
 			var img := Image.new()
 			img.load(set_directory_path + "/" + file_name)
+
 			if img.get_width() == 20 or img.get_width() == 180: # 1px scale
 				var size = img.get_size() * 2
 				img.resize(size.x, size.y,Image.INTERPOLATE_NEAREST)

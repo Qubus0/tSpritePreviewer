@@ -1,3 +1,13 @@
 [remap]
 
-importer="keep"
+importer="image"
+type="Image"
+path="res://.import/PlayerBody_Body.png-60da6536457eb3e08ec28ab4129abcea.image"
+
+[deps]
+
+source_file="res://images/player/Player/PlayerBody_Body.png"
+dest_files=[ "res://.import/PlayerBody_Body.png-60da6536457eb3e08ec28ab4129abcea.image" ]
+
+[params]
+

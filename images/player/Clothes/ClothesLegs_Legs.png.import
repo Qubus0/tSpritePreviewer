@@ -1,3 +1,13 @@
 [remap]
 
-importer="keep"
+importer="image"
+type="Image"
+path="res://.import/ClothesLegs_Legs.png-f7514ff16e927aecd9287f84e63be842.image"
+
+[deps]
+
+source_file="res://images/player/Clothes/ClothesLegs_Legs.png"
+dest_files=[ "res://.import/ClothesLegs_Legs.png-f7514ff16e927aecd9287f84e63be842.image" ]
+
+[params]
+

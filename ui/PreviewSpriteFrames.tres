@@ -4,19 +4,9 @@
 resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
-"loop": false,
-"name": "idle",
-"speed": 0.0
-}, {
-"frames": [  ],
 "loop": true,
-"name": "use",
+"name": "special",
 "speed": 8.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
 }, {
 "frames": [  ],
 "loop": false,
@@ -29,7 +19,17 @@ animations = [ {
 "speed": 16.0
 }, {
 "frames": [  ],
+"loop": false,
+"name": "sit",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "idle",
+"speed": 0.0
+}, {
+"frames": [  ],
 "loop": true,
-"name": "special",
+"name": "use",
 "speed": 8.0
 } ]

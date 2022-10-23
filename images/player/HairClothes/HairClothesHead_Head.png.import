@@ -1,3 +1,13 @@
 [remap]
 
-importer="keep"
+importer="image"
+type="Image"
+path="res://.import/HairClothesHead_Head.png-f49261af6613dbd9fc086e1393ff9729.image"
+
+[deps]
+
+source_file="res://images/player/HairClothes/HairClothesHead_Head.png"
+dest_files=[ "res://.import/HairClothesHead_Head.png-f49261af6613dbd9fc086e1393ff9729.image" ]
+
+[params]
+
