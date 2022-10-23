@@ -32,7 +32,7 @@ func get_set_information(set_directory_path: String) -> Array:
 			set_name + "Head_Head.png", set_name + "Body_Body.png", set_name + "Legs_Legs.png",
 		]
 		if file_name in possible_file_names: # character sprites end in _Head, _Body ...
-			var img = Image.new()
+			var img := Image.new()
 			img.load(set_directory_path + "/" + file_name)
 			if img.get_width() == 20 or img.get_width() == 180: # 1px scale
 				var size = img.get_size() * 2

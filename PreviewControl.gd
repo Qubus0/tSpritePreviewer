@@ -2,7 +2,7 @@ extends Control
 class_name PreviewControl
 
 var previews := {}
-var sprite_frames := preload("res://ui/PreviewSpriteFrams.tres")
+var sprite_frames := preload("res://ui/PreviewSpriteFrames.tres")
 
 signal frame_changed(frame)
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 		previews[preview_sprite.name] = preview_sprite
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_pos := get_global_mouse_position()
 	if not mouse_pos or not is_in_window(mouse_pos):
 		return

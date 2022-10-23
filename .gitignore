@@ -1,7 +1,6 @@
 # Godot
 .godot
-.import/
-*.import
+.import/*
 export/*
 
 # IDEs

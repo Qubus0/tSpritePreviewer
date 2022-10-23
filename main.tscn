@@ -495,10 +495,11 @@ icon_color_pressed = Color( 1, 0.0784314, 0, 1 )
 [node name="ErrorLabel" type="RichTextLabel" parent="."]
 visible = false
 anchor_right = 1.0
-margin_left = 9.0
-margin_top = 32.0
-margin_right = -9.0
-margin_bottom = 247.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 30.0
+margin_right = -5.0
+margin_bottom = -5.0
 custom_styles/normal = SubResource( 51 )
 bbcode_enabled = true
 fit_content_height = true

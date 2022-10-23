@@ -94,7 +94,7 @@ func files_dropped(paths: PoolStringArray, _screen: int):
 	create_preview(path)
 
 
-func files_modified(files: Array):
+func files_modified(_files: Array):
 	create_preview(settings.last_directory)
 
 

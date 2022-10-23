@@ -10,23 +10,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -35,8 +20,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=69]
@@ -44,23 +44,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -69,8 +54,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=54]
@@ -78,23 +78,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -103,8 +88,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=70]
@@ -112,23 +112,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -137,8 +122,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=71]
@@ -146,23 +146,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -171,8 +156,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=67]
@@ -180,23 +180,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -205,8 +190,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=73]
@@ -214,23 +214,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -239,8 +224,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=74]
@@ -248,23 +248,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -273,8 +258,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=72]
@@ -282,23 +282,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -307,8 +292,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=76]
@@ -316,23 +316,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -341,8 +326,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=77]
@@ -350,23 +350,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -375,8 +360,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [sub_resource type="SpriteFrames" id=75]
@@ -384,23 +384,8 @@ resource_local_to_scene = true
 animations = [ {
 "frames": [  ],
 "loop": false,
-"name": "jump",
+"name": "idle",
 "speed": 0.0
-}, {
-"frames": [  ],
-"loop": false,
-"name": "sit",
-"speed": 0.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "special",
-"speed": 8.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "move",
-"speed": 16.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -409,8 +394,23 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": false,
-"name": "idle",
+"name": "sit",
 "speed": 0.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "jump",
+"speed": 0.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "move",
+"speed": 16.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "special",
+"speed": 8.0
 } ]
 
 [node name="PreviewControl" type="Control"]
