@@ -91,6 +91,7 @@ func _ready() -> void:
 	toggle_panel(playback_panel, false, 0)
 
 	add_child(watcher)
+	watcher.pause_mode = PAUSE_MODE_PROCESS
 	watcher.connect("files_modified", self, "files_modified")
 	background_color = $Background.get_stylebox("panel").bg_color
 
@@ -131,10 +132,12 @@ func files_dropped(paths: PoolStringArray, _screen: int):
 
 
 func files_modified(_files: Array):
+	print('modified')
 	create_preview(settings.last_directory)
 
 
 func create_preview(directory_path: String) -> void:
+	var was_sprite_playing := equipment_preview.is_preview_sprite_playing()
 	equipment_preview.set_preview_sprite_playing(false)
 	var last_frame = equipment_preview.clear_preview_sprites()
 	var item_images := ItemFileReader.get_set_information(directory_path)
@@ -149,6 +152,7 @@ func create_preview(directory_path: String) -> void:
 	var preview_images = ImageFactory.compile_set_images(item_images)
 	equipment_preview.create_preview(preview_images)
 	equipment_preview.set_preview_sprite_frame(last_frame)
+	equipment_preview.set_preview_sprite_playing(was_sprite_playing)
 
 
 func create_player_previews() -> void:

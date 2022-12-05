@@ -61,6 +61,13 @@ func clear_preview_sprites() -> int:
 	return last_frame
 
 
+func is_preview_sprite_playing() -> bool:
+	for part_type in previews.keys():
+		var sprite: AnimatedSprite = previews[part_type] as AnimatedSprite
+		return sprite.playing
+	return true
+
+
 func set_preview_sprite_playing(is_playing: bool) -> void:
 	for part_type in previews.keys():
 		var sprite: AnimatedSprite = previews[part_type] as AnimatedSprite
