@@ -149,7 +149,6 @@ func create_preview(directory_path: String) -> void:
 	var preview_images = ImageFactory.compile_set_images(item_images)
 	equipment_preview.create_preview(preview_images)
 	equipment_preview.set_preview_sprite_frame(last_frame)
-	equipment_preview.set_preview_sprite_playing(true)
 
 
 func create_player_previews() -> void:
